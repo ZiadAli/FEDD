@@ -13,6 +13,8 @@
 		99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF71F6B8AD90059E14E /* FEDD.xcdatamodeld */; };
 		99FC9DFB1F6B8AD90059E14E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DFA1F6B8AD90059E14E /* Assets.xcassets */; };
 		99FC9DFE1F6B8AD90059E14E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DFC1F6B8AD90059E14E /* LaunchScreen.storyboard */; };
+		99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FF98381F7C8B8700E3891B /* ProjectController.swift */; };
+		99FF983B1F7C8C2800E3891B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FF983A1F7C8C2800E3891B /* Team.swift */; };
 		A19C36071A4E00226F5FF8B2 /* Pods_FEDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B40721366CCFE2B4B17A5FB /* Pods_FEDD.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,9 @@
 		99FC9DFA1F6B8AD90059E14E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99FC9DFD1F6B8AD90059E14E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99FC9DFF1F6B8AD90059E14E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99FF98381F7C8B8700E3891B /* ProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectController.swift; sourceTree = "<group>"; };
+		99FF983A1F7C8C2800E3891B /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		99FF983D1F7C8C5100E3891B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C797F33B8429BAA54ACDB93D /* Pods-FEDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FEDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FEDD/Pods-FEDD.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,15 +68,42 @@
 		99FC9DEF1F6B8AD90059E14E /* FEDD */ = {
 			isa = PBXGroup;
 			children = (
+				99FF983F1F7C8C6700E3891B /* Models */,
+				99FF983E1F7C8C5700E3891B /* Views */,
+				99FF983C1F7C8C3D00E3891B /* Assets */,
 				99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */,
 				99FC9DF21F6B8AD90059E14E /* ViewController.swift */,
-				99FC9DF41F6B8AD90059E14E /* Main.storyboard */,
-				99FC9DFA1F6B8AD90059E14E /* Assets.xcassets */,
-				99FC9DFC1F6B8AD90059E14E /* LaunchScreen.storyboard */,
-				99FC9DFF1F6B8AD90059E14E /* Info.plist */,
-				99FC9DF71F6B8AD90059E14E /* FEDD.xcdatamodeld */,
+				99FF98381F7C8B8700E3891B /* ProjectController.swift */,
 			);
 			path = FEDD;
+			sourceTree = "<group>";
+		};
+		99FF983C1F7C8C3D00E3891B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				99FC9DFA1F6B8AD90059E14E /* Assets.xcassets */,
+				99FC9DFF1F6B8AD90059E14E /* Info.plist */,
+				99FC9DF71F6B8AD90059E14E /* FEDD.xcdatamodeld */,
+				99FF983D1F7C8C5100E3891B /* GoogleService-Info.plist */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		99FF983E1F7C8C5700E3891B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99FC9DFC1F6B8AD90059E14E /* LaunchScreen.storyboard */,
+				99FC9DF41F6B8AD90059E14E /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		99FF983F1F7C8C6700E3891B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				99FF983A1F7C8C2800E3891B /* Team.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E06687F7B6BB279B50051CD7 /* Pods */ = {
@@ -222,7 +254,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */,
+				99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */,
 				99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */,
+				99FF983B1F7C8C2800E3891B /* Team.swift in Sources */,
 				99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,8 +382,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 47FWPX3KEU;
-				INFOPLIST_FILE = FEDD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_FILE = FEDD/Assets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NCSUAdc.FEDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -363,8 +397,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 47FWPX3KEU;
-				INFOPLIST_FILE = FEDD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_FILE = FEDD/Assets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NCSUAdc.FEDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,6 +425,7 @@
 				99FC9E041F6B8AD90059E14E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
