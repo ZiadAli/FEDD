@@ -1,0 +1,6 @@
+framework module Pods_FEDD {
+  umbrella header "Pods-FEDD-umbrella.h"
+
+  export *
+  module * { export * }
+}
