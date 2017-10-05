@@ -69,7 +69,7 @@
                     <navigationItem key="navigationItem" title="Projects" id="X1c-cr-BEQ"/>
                     <connections>
                         <outlet property="collectionView" destination="q0x-WD-jst" id="d5A-Ww-trw"/>
-                        <segue destination="qVa-dY-BZH" kind="show" id="8Zg-ge-i9z"/>
+                        <segue destination="qVa-dY-BZH" kind="show" identifier="toProjectScreen" id="8Zg-ge-i9z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXK-HH-3zV" userLabel="First Responder" sceneMemberID="firstResponder"/>

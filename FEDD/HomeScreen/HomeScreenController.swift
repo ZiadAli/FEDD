@@ -27,16 +27,6 @@ class HomeScreenController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension HomeScreenController: UICollectionViewDataSource{
@@ -52,12 +42,14 @@ extension HomeScreenController: UICollectionViewDataSource{
 }
 
 extension HomeScreenController: UICollectionViewDelegateFlowLayout{
-//    func collectionView(_ collectionView: UICollectionView, collectionViewLayout: UICollectionViewLayout, indexPath: IndexPath) -> CGSize {
-//
-//    }
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.collectionView.frame.width / 2 - 6, height: 200)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.collectionView.deselectItem(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: "toProjectScreen", sender: self)
     }
 }
