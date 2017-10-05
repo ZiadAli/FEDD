@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */; };
+		789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */; };
 		99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */; };
 		99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF21F6B8AD90059E14E /* ViewController.swift */; };
 		99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DF41F6B8AD90059E14E /* Main.storyboard */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		0A67D5178EA0960EEAC00A79 /* Pods-FEDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FEDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-FEDD/Pods-FEDD.release.xcconfig"; sourceTree = "<group>"; };
+		789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
+		789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		7B40721366CCFE2B4B17A5FB /* Pods_FEDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FEDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99FC9DED1F6B8AD90059E14E /* FEDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FEDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		789A20F31F7C8B6D00A6A251 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */,
+				789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
 		99FC9DE41F6B8AD90059E14E = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +76,7 @@
 		99FC9DEF1F6B8AD90059E14E /* FEDD */ = {
 			isa = PBXGroup;
 			children = (
+				789A20F31F7C8B6D00A6A251 /* HomeScreen */,
 				99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */,
 				99FC9DF21F6B8AD90059E14E /* ViewController.swift */,
 				99FC9DF41F6B8AD90059E14E /* Main.storyboard */,
@@ -223,6 +237,8 @@
 			files = (
 				99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */,
 				99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */,
+				789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */,
+				789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */,
 				99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,7 +365,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 47FWPX3KEU;
 				INFOPLIST_FILE = FEDD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NCSUAdc.FEDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -364,7 +380,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 47FWPX3KEU;
 				INFOPLIST_FILE = FEDD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NCSUAdc.FEDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,6 +407,7 @@
 				99FC9E041F6B8AD90059E14E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
