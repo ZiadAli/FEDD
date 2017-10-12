@@ -7,6 +7,6 @@ target 'FEDD' do
 
   # Pods for FEDD
 	pod ‘Firebase’
-	
+	pod ‘Firebase/Firestore’
 
 end

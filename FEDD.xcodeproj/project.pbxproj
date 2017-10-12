@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */; };
 		789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */; };
+		99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99294FC11F8EFD8E00A2CF7E /* DBManager.swift */; };
+		99294FC51F8F009900A2CF7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99294FC41F8F009900A2CF7E /* GoogleService-Info.plist */; };
+		99294FC71F8F02AF00A2CF7E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99294FC61F8F02AF00A2CF7E /* Score.swift */; };
 		99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */; };
 		99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF21F6B8AD90059E14E /* ViewController.swift */; };
 		99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DF41F6B8AD90059E14E /* Main.storyboard */; };
@@ -25,6 +28,9 @@
 		789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		7B40721366CCFE2B4B17A5FB /* Pods_FEDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FEDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99294FC11F8EFD8E00A2CF7E /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		99294FC41F8F009900A2CF7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99294FC61F8F02AF00A2CF7E /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		99FC9DED1F6B8AD90059E14E /* FEDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FEDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99FC9DF21F6B8AD90059E14E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,7 +41,6 @@
 		99FC9DFF1F6B8AD90059E14E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99FF98381F7C8B8700E3891B /* ProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectController.swift; sourceTree = "<group>"; };
 		99FF983A1F7C8C2800E3891B /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
-		99FF983D1F7C8C5100E3891B /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C797F33B8429BAA54ACDB93D /* Pods-FEDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FEDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FEDD/Pods-FEDD.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,10 +100,10 @@
 		99FF983C1F7C8C3D00E3891B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				99294FC41F8F009900A2CF7E /* GoogleService-Info.plist */,
 				99FC9DFA1F6B8AD90059E14E /* Assets.xcassets */,
 				99FC9DFF1F6B8AD90059E14E /* Info.plist */,
 				99FC9DF71F6B8AD90059E14E /* FEDD.xcdatamodeld */,
-				99FF983D1F7C8C5100E3891B /* GoogleService-Info.plist */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -116,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				99FF983A1F7C8C2800E3891B /* Team.swift */,
+				99294FC11F8EFD8E00A2CF7E /* DBManager.swift */,
+				99294FC61F8F02AF00A2CF7E /* Score.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99294FC51F8F009900A2CF7E /* GoogleService-Info.plist in Resources */,
 				99FC9DFE1F6B8AD90059E14E /* LaunchScreen.storyboard in Resources */,
 				99FC9DFB1F6B8AD90059E14E /* Assets.xcassets in Resources */,
 				99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */,
@@ -249,11 +257,29 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FEDD/Pods-FEDD-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -270,9 +296,11 @@
 				99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */,
 				99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */,
 				99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */,
+				99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */,
 				789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */,
 				789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */,
 				99FF983B1F7C8C2800E3891B /* Team.swift in Sources */,
+				99294FC71F8F02AF00A2CF7E /* Score.swift in Sources */,
 				99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
