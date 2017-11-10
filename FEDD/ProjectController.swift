@@ -17,10 +17,17 @@ class ProjectController: UITableViewController {
         teams = [Team]()
         let team1 = Team()
         team1.name = "Team #1"
+        team1.sessionTime = "morning_projects"
+        team1.project = "Animatronics"
+        team1.id = "Team1"
         let team2 = Team()
         team2.name = "Team #2"
         teams.append(team1)
         teams.append(team2)
+        
+        let score = Score()
+        score.name = "TestScore"
+        DBManager.addScore(team: team1, score: score)
     }
 
     override func didReceiveMemoryWarning() {

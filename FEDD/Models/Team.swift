@@ -13,5 +13,7 @@ class Team:NSObject {
     var name:String!
     var project:String!
     var members:[String]!
+    var sessionTime:String!
+    var id:String!
     
 }
