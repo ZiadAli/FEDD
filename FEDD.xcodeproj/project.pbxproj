@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7829E54F1FB6597F00BDF393 /* TeamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829E54E1FB6597F00BDF393 /* TeamViewCell.swift */; };
+		7829E5511FB65C9900BDF393 /* TeamViewSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829E5501FB65C9900BDF393 /* TeamViewSectionCell.swift */; };
+		786D40E91F8F03E80016A5CA /* TeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786D40E81F8F03E80016A5CA /* TeamController.swift */; };
 		789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */; };
 		789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */; };
 		99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */; };
@@ -22,6 +25,9 @@
 
 /* Begin PBXFileReference section */
 		0A67D5178EA0960EEAC00A79 /* Pods-FEDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FEDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-FEDD/Pods-FEDD.release.xcconfig"; sourceTree = "<group>"; };
+		7829E54E1FB6597F00BDF393 /* TeamViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewCell.swift; sourceTree = "<group>"; };
+		7829E5501FB65C9900BDF393 /* TeamViewSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewSectionCell.swift; sourceTree = "<group>"; };
+		786D40E81F8F03E80016A5CA /* TeamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamController.swift; sourceTree = "<group>"; };
 		789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		7B40721366CCFE2B4B17A5FB /* Pods_FEDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FEDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +57,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7829E54D1FB6591A00BDF393 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7829E54E1FB6597F00BDF393 /* TeamViewCell.swift */,
+				7829E5501FB65C9900BDF393 /* TeamViewSectionCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		789A20F31F7C8B6D00A6A251 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +73,14 @@
 				789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */,
 			);
 			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		78DD57401F8EFFE800561162 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				786D40E81F8F03E80016A5CA /* TeamController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		99FC9DE41F6B8AD90059E14E = {
@@ -81,8 +104,10 @@
 		99FC9DEF1F6B8AD90059E14E /* FEDD */ = {
 			isa = PBXGroup;
 			children = (
+				7829E54D1FB6591A00BDF393 /* Cells */,
 				789A20F31F7C8B6D00A6A251 /* HomeScreen */,
 				99FF983F1F7C8C6700E3891B /* Models */,
+				78DD57401F8EFFE800561162 /* Controllers */,
 				99FF983E1F7C8C5700E3891B /* Views */,
 				99FF983C1F7C8C3D00E3891B /* Assets */,
 				99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */,
@@ -267,13 +292,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7829E54F1FB6597F00BDF393 /* TeamViewCell.swift in Sources */,
 				99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */,
 				99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */,
+				786D40E91F8F03E80016A5CA /* TeamController.swift in Sources */,
 				99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */,
 				789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */,
 				789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */,
 				99FF983B1F7C8C2800E3891B /* Team.swift in Sources */,
 				99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */,
+				7829E5511FB65C9900BDF393 /* TeamViewSectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
