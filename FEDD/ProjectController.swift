@@ -8,18 +8,28 @@
 
 import UIKit
 
-class ProjectController: UITableViewController {
+class ProjectController: UIViewController {
     
+    var teams:[Team]!
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var morningAfterNoonSegmentedControl: UISegmentedControl!
     var project:String!
     var morningTeams:[String:Team] = [String:Team]()
     var morningTeamsList:[Team] = [Team]()
     var afternoonTeams:[String:Team] = [String:Team]()
     var afternoonTeamsList:[Team] = [Team]()
     var currentSession = "Morning"
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let score = Score()
+        score.name = "TestScore"
+        //DBManager.addScore(team: team1, score: score)
         
+        tableView.dataSource = self
+        tableView.delegate = self
         project = "3D Printing"
         morningTeams = (DBManager.projects[project]?.morningTeams)!
         afternoonTeams = (DBManager.projects[project]?.afternoonTeams)!
@@ -43,15 +53,21 @@ class ProjectController: UITableViewController {
         afternoonTeamsList.sort {$0.score > $1.score}
         tableView.reloadData()
     }
+    
+    @IBAction func morningAfterNoonStatusChanged(_ sender: Any) {
+        print("morning AfterNoon")
+        //Change data source
+    }
+    
+}
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+extension ProjectController: UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if currentSession == "Morning" {
             return morningTeamsList.count
@@ -59,7 +75,7 @@ class ProjectController: UITableViewController {
         return afternoonTeamsList.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
         var teamList = morningTeamsList
         if currentSession == "Afternoon" {
@@ -71,9 +87,11 @@ class ProjectController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+}
+
+extension ProjectController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         performSegue(withIdentifier: "toTeamController", sender: nil)
     }
-
 }

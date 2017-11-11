@@ -70,17 +70,17 @@
                     <navigationItem key="navigationItem" title="Projects" id="X1c-cr-BEQ"/>
                     <connections>
                         <outlet property="collectionView" destination="q0x-WD-jst" id="d5A-Ww-trw"/>
-                        <segue destination="qVa-dY-BZH" kind="show" identifier="toProjectScreen" id="8Zg-ge-i9z"/>
+                        <segue destination="z3V-4Z-Ow7" kind="show" identifier="toProjectScreen" id="afu-cL-Laq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gXK-HH-3zV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="680.79999999999995" y="111.99400299850076"/>
         </scene>
-        <!--Project Controller-->
+        <!--Table View Controller-->
         <scene sceneID="rh1-ZO-crP">
             <objects>
-                <tableViewController id="qVa-dY-BZH" customClass="ProjectController" customModule="FEDD" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="qVa-dY-BZH" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="53H-T9-QI4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,13 +100,67 @@
                             <outlet property="delegate" destination="qVa-dY-BZH" id="444-cH-16L"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="b68-ck-z99" kind="show" identifier="toTeamController" id="HuO-VQ-wXl"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCh-0g-RWF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1538" y="112"/>
+            <point key="canvasLocation" x="1423" y="1022"/>
+        </scene>
+        <!--Project Controller-->
+        <scene sceneID="YdL-Mh-fQT">
+            <objects>
+                <viewController id="z3V-4Z-Ow7" customClass="ProjectController" customModule="FEDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zQS-gV-9QS"/>
+                        <viewControllerLayoutGuide type="bottom" id="ixe-Zr-DTP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5El-RU-bdM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mIO-wO-SMa">
+                                <rect key="frame" x="112" y="72" width="158" height="29"/>
+                                <segments>
+                                    <segment title="Morning"/>
+                                    <segment title="Afternoon"/>
+                                </segments>
+                                <connections>
+                                    <action selector="morningAfterNoonStatusChanged:" destination="z3V-4Z-Ow7" eventType="valueChanged" id="NcE-CK-ROe"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bj8-iq-qtS">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamCell" id="5Rp-HW-wKy">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Rp-HW-wKy" id="Ttj-8y-6mO">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bj8-iq-qtS" firstAttribute="leading" secondItem="5El-RU-bdM" secondAttribute="leading" id="72d-D8-0T7"/>
+                            <constraint firstItem="bj8-iq-qtS" firstAttribute="top" secondItem="mIO-wO-SMa" secondAttribute="bottom" constant="8" id="AnQ-zQ-CjN"/>
+                            <constraint firstItem="mIO-wO-SMa" firstAttribute="top" secondItem="zQS-gV-9QS" secondAttribute="bottom" constant="8" id="WLO-ka-hgC"/>
+                            <constraint firstItem="mIO-wO-SMa" firstAttribute="centerX" secondItem="5El-RU-bdM" secondAttribute="centerX" constant="3.5" id="bZa-FX-pIa"/>
+                            <constraint firstAttribute="trailing" secondItem="bj8-iq-qtS" secondAttribute="trailing" id="cvl-Yl-crv"/>
+                            <constraint firstItem="ixe-Zr-DTP" firstAttribute="top" secondItem="bj8-iq-qtS" secondAttribute="bottom" id="wfx-2j-UT4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="morningAfterNoonSegmentedControl" destination="mIO-wO-SMa" id="Lb3-ZZ-vIb"/>
+                        <outlet property="tableView" destination="bj8-iq-qtS" id="P1f-rp-Uey"/>
+                        <segue destination="b68-ck-z99" kind="show" identifier="toTeamController" id="0LW-aW-Jpd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="duo-nP-ahg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421.5999999999999" y="111.99400299850076"/>
         </scene>
         <!--Team Name-->
         <scene sceneID="0mh-8s-Avg">
