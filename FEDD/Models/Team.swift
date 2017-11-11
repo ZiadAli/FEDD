@@ -15,5 +15,6 @@ class Team:NSObject {
     var members:[String]!
     var sessionTime:String!
     var id:String!
+    var score:Double = 0.0
     
 }

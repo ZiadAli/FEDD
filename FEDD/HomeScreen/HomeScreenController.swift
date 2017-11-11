@@ -18,7 +18,9 @@ class HomeScreenController: UIViewController {
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        print("DOne loading")
+        print("oOne loading")
+        DBManager.initialize()
+        DBManager.updateLeaderboard(project: "3D Printing")
         // Do any additional setup after loading the view.
     }
 
