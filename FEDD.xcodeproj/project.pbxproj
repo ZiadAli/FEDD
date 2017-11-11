@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B73DA6E1FB658DB0082E347 /* InputScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B73DA6D1FB658DB0082E347 /* InputScoreViewController.swift */; };
+		0B73DA711FB659F70082E347 /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B73DA6F1FB659F70082E347 /* PickerTableViewCell.swift */; };
+		0B73DA721FB659F70082E347 /* PickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B73DA701FB659F70082E347 /* PickerTableViewCell.xib */; };
 		789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */; };
 		789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */; };
 		99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99294FC11F8EFD8E00A2CF7E /* DBManager.swift */; };
@@ -25,6 +28,9 @@
 
 /* Begin PBXFileReference section */
 		0A67D5178EA0960EEAC00A79 /* Pods-FEDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FEDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-FEDD/Pods-FEDD.release.xcconfig"; sourceTree = "<group>"; };
+		0B73DA6D1FB658DB0082E347 /* InputScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputScoreViewController.swift; sourceTree = "<group>"; };
+		0B73DA6F1FB659F70082E347 /* PickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		0B73DA701FB659F70082E347 /* PickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerTableViewCell.xib; sourceTree = "<group>"; };
 		789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
 		789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		7B40721366CCFE2B4B17A5FB /* Pods_FEDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FEDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +67,7 @@
 			children = (
 				789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */,
 				789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */,
+				0B73DA6D1FB658DB0082E347 /* InputScoreViewController.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -113,6 +120,8 @@
 			children = (
 				99FC9DFC1F6B8AD90059E14E /* LaunchScreen.storyboard */,
 				99FC9DF41F6B8AD90059E14E /* Main.storyboard */,
+				0B73DA6F1FB659F70082E347 /* PickerTableViewCell.swift */,
+				0B73DA701FB659F70082E347 /* PickerTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B73DA721FB659F70082E347 /* PickerTableViewCell.xib in Resources */,
 				99294FC51F8F009900A2CF7E /* GoogleService-Info.plist in Resources */,
 				99FC9DFE1F6B8AD90059E14E /* LaunchScreen.storyboard in Resources */,
 				99FC9DFB1F6B8AD90059E14E /* Assets.xcassets in Resources */,
@@ -295,8 +305,10 @@
 			files = (
 				99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */,
 				99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */,
+				0B73DA711FB659F70082E347 /* PickerTableViewCell.swift in Sources */,
 				99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */,
 				99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */,
+				0B73DA6E1FB658DB0082E347 /* InputScoreViewController.swift in Sources */,
 				789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */,
 				789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */,
 				99FF983B1F7C8C2800E3891B /* Team.swift in Sources */,
