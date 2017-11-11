@@ -54,9 +54,13 @@ class ProjectController: UIViewController {
         tableView.reloadData()
     }
     
-    @IBAction func morningAfterNoonStatusChanged(_ sender: Any) {
-        print("morning AfterNoon")
-        //Change data source
+    @IBAction func morningAfterNoonStatusChanged(_ sender: UISegmentedControl) {
+        var newSession = "Morning"
+        if sender.selectedSegmentIndex == 1 {
+            newSession = "Afternoon"
+        }
+        currentSession = newSession
+        updateTeamList()
     }
     
 }
