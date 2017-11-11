@@ -8,10 +8,12 @@
 
 import UIKit
 
-class ProjectController: UITableViewController {
+class ProjectController: UIViewController {
     
     var teams:[Team]!
 
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var morningAfterNoonSegmentedControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         teams = [Team]()
@@ -28,6 +30,9 @@ class ProjectController: UITableViewController {
         let score = Score()
         score.name = "TestScore"
         DBManager.addScore(team: team1, score: score)
+        
+        tableView.dataSource = self
+        tableView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,20 +43,26 @@ class ProjectController: UITableViewController {
     func setTeams(teams:[Team]) {
         self.teams = teams
     }
+    
+    @IBAction func morningAfterNoonStatusChanged(_ sender: Any) {
+        print("morning AfterNoon")
+        //Change data source
+    }
+    
+}
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
+extension ProjectController: UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return teams.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
         let team = teams[indexPath.row]
         cell.textLabel?.text = team.name
@@ -59,9 +70,11 @@ class ProjectController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+}
+
+extension ProjectController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         performSegue(withIdentifier: "toTeamController", sender: nil)
     }
-
 }
