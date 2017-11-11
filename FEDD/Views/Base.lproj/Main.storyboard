@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Wjn-hm-bz1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wwl-0A-NlM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +13,7 @@
         <!--Projects-->
         <scene sceneID="eDy-oF-Vzw">
             <objects>
-                <viewController id="VhQ-kY-kxr" customClass="HomeScreenController" customModule="FEDD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScreenController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VhQ-kY-kxr" customClass="HomeScreenController" customModule="FEDD" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7SG-wF-Jz4"/>
                         <viewControllerLayoutGuide type="bottom" id="Ud6-ZE-4UU"/>
@@ -68,8 +67,15 @@
                             <constraint firstItem="q0x-WD-jst" firstAttribute="leading" secondItem="icS-kQ-uKy" secondAttribute="leading" id="xaw-Eb-eco"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Projects" id="X1c-cr-BEQ"/>
+                    <navigationItem key="navigationItem" title="Projects" id="X1c-cr-BEQ">
+                        <barButtonItem key="rightBarButtonItem" title="Exit" id="2jU-FW-2so">
+                            <connections>
+                                <action selector="exitAction:" destination="VhQ-kY-kxr" id="1FT-W8-fXx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="Exit" destination="2jU-FW-2so" id="Tyf-HI-7HY"/>
                         <outlet property="collectionView" destination="q0x-WD-jst" id="d5A-Ww-trw"/>
                         <segue destination="z3V-4Z-Ow7" kind="show" identifier="toProjectScreen" id="afu-cL-Laq"/>
                     </connections>
@@ -187,13 +193,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m9J-k9-iX0">
-                                                    <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="15" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNm-YH-92d">
-                                                    <rect key="frame" x="325" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="318" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -289,6 +295,70 @@
             </objects>
             <point key="canvasLocation" x="2176.8000000000002" y="111.99400299850076"/>
         </scene>
+        <!--First View Controller-->
+        <scene sceneID="9Yh-17-2g9">
+            <objects>
+                <viewController storyboardIdentifier="FirstViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wwl-0A-NlM" customClass="FirstViewController" customModule="FEDD" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kdB-gL-YXn"/>
+                        <viewControllerLayoutGuide type="bottom" id="J4J-x3-KBB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oe1-4t-wvZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="naw-UK-D7d">
+                                <rect key="frame" x="135.5" y="298.5" width="104" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezv-DG-CvY">
+                                        <rect key="frame" x="0.0" y="0.0" width="104" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Login as Judge">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginAsJudge:" destination="wwl-0A-NlM" eventType="touchUpInside" id="gJo-N7-mPn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCd-90-QEM">
+                                        <rect key="frame" x="0.0" y="40" width="104" height="30"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Leaderboard">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="leaderboard:" destination="wwl-0A-NlM" eventType="touchUpInside" id="ay3-Wx-lxc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="OCd-90-QEM" secondAttribute="bottom" id="9v3-rc-75S"/>
+                                    <constraint firstItem="ezv-DG-CvY" firstAttribute="top" secondItem="naw-UK-D7d" secondAttribute="top" id="BH9-dL-Qbx"/>
+                                    <constraint firstItem="ezv-DG-CvY" firstAttribute="leading" secondItem="naw-UK-D7d" secondAttribute="leading" id="Ika-54-NDb"/>
+                                    <constraint firstItem="OCd-90-QEM" firstAttribute="top" secondItem="ezv-DG-CvY" secondAttribute="bottom" constant="10" id="OfP-Qr-p3S"/>
+                                    <constraint firstAttribute="trailing" secondItem="ezv-DG-CvY" secondAttribute="trailing" id="foZ-eS-EI8"/>
+                                    <constraint firstAttribute="trailing" secondItem="OCd-90-QEM" secondAttribute="trailing" id="g58-Tx-6es"/>
+                                    <constraint firstItem="OCd-90-QEM" firstAttribute="top" secondItem="ezv-DG-CvY" secondAttribute="bottom" constant="10" id="j2P-i0-a2c"/>
+                                    <constraint firstItem="OCd-90-QEM" firstAttribute="leading" secondItem="naw-UK-D7d" secondAttribute="leading" id="rfS-e7-n29"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="naw-UK-D7d" firstAttribute="centerX" secondItem="Oe1-4t-wvZ" secondAttribute="centerX" id="69D-Lu-XVJ"/>
+                            <constraint firstItem="naw-UK-D7d" firstAttribute="centerY" secondItem="Oe1-4t-wvZ" secondAttribute="centerY" id="uPO-uc-L8m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="ezv-DG-CvY" id="Usg-lk-hID"/>
+                        <segue destination="fS2-65-Gan" kind="show" identifier="toLeaderboard" id="Fux-OU-NcL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kfo-yL-hGv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2318" y="-150"/>
+        </scene>
         <!--Input Score View Controller-->
         <scene sceneID="3EN-Lp-ITR">
             <objects>
@@ -354,7 +424,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QkW-fR-uPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-185" y="112"/>
+            <point key="canvasLocation" x="-1452" y="-159"/>
         </scene>
     </scenes>
 </document>
