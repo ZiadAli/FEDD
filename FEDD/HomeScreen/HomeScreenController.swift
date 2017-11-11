@@ -10,6 +10,7 @@ import UIKit
 
 class HomeScreenController: UIViewController {
 
+    @IBOutlet weak var Exit: UIBarButtonItem!
     var categories = ["Category 1","Category 2","Category 3","Category 4","Category 5","Category 6"]
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -21,6 +22,13 @@ class HomeScreenController: UIViewController {
         print("oOne loading")
         DBManager.initialize()
         DBManager.updateLeaderboard(project: "3D Printing")
+        
+        if SignInHelper.isLoggedIn {
+            Exit.title = "Log out"
+        } else {
+            Exit.title = "Exit"
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +37,13 @@ class HomeScreenController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func exitAction(_ sender: Any) {
+        GIDSignIn.sharedInstance().signOut()
+        UserDefaults.standard.set(nil, forKey: "loggedIn")
+        UserDefaults.standard.set(nil, forKey: "fullName")
+        UserDefaults.standard.set(nil, forKey: "email")
+        SignInHelper.startFlow()
+    }
 }
 
 extension HomeScreenController: UICollectionViewDataSource{
