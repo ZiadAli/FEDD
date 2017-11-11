@@ -9,17 +9,50 @@
 import UIKit
 import CoreData
 import Firebase
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance().clientID = "280323116640-urt3tna1qiql8l1jglnvi17bq8q39be7.apps.googleusercontent.com"
+        GIDSignIn.sharedInstance().delegate = self
+
+        SignInHelper.startFlow()
+        
         return true
+    }
+    
+    public func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url as URL!, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+    }
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error == nil) {
+            // Perform any operations on signed in user here.
+            let fullName = user.profile.name
+            let email = user.profile.email
+            UserDefaults.standard.set(true, forKey: "loggedIn")
+            UserDefaults.standard.set(fullName, forKey: "fullName")
+            UserDefaults.standard.set(email, forKey: "email")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "signInSuccess"), object: self)
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "signInFailure"), object: self)
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+                withError error: NSError!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

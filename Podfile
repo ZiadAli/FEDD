@@ -9,4 +9,7 @@ target 'FEDD' do
 	pod ‘Firebase’
 	pod ‘Firebase/Firestore’
 
+  # Pods for Google Sign in
+    pod 'GoogleSignIn'
+
 end
