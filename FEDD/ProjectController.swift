@@ -23,14 +23,11 @@ class ProjectController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let score = Score()
-        score.name = "TestScore"
-        //DBManager.addScore(team: team1, score: score)
+        
+        DBManager.updateLeaderboard(project: project)
         
         tableView.dataSource = self
         tableView.delegate = self
-        project = "3D Printing"
         morningTeams = (DBManager.projects[project]?.morningTeams)!
         afternoonTeams = (DBManager.projects[project]?.afternoonTeams)!
         updateTeamList()
@@ -54,9 +51,13 @@ class ProjectController: UIViewController {
         tableView.reloadData()
     }
     
-    @IBAction func morningAfterNoonStatusChanged(_ sender: Any) {
-        print("morning AfterNoon")
-        //Change data source
+    @IBAction func morningAfterNoonStatusChanged(_ sender: UISegmentedControl) {
+        var newSession = "Morning"
+        if sender.selectedSegmentIndex == 1 {
+            newSession = "Afternoon"
+        }
+        currentSession = newSession
+        updateTeamList()
     }
     
 }
@@ -82,7 +83,7 @@ extension ProjectController: UITableViewDataSource{
             teamList = afternoonTeamsList
         }
         let team = teamList[indexPath.row]
-        cell.textLabel?.text = "\(team.name) \(team.score)"
+        cell.textLabel?.text = "\(team.name!) \(team.score)"
         
         return cell
     }

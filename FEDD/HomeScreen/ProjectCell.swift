@@ -10,5 +10,6 @@ import UIKit
 
 class ProjectCell: UICollectionViewCell {
     @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet var projectImage: UIImageView!
     
 }
