@@ -11,7 +11,7 @@ import UIKit
 class HomeScreenController: UIViewController {
 
     @IBOutlet weak var Exit: UIBarButtonItem!
-    var categories = ["Category 1","Category 2","Category 3","Category 4","Category 5","Category 6"]
+    var categories = DBManager.projectNames
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,7 +21,6 @@ class HomeScreenController: UIViewController {
         self.collectionView.delegate = self
         print("oOne loading")
         DBManager.initialize()
-        DBManager.updateLeaderboard(project: "3D Printing")
         
         if SignInHelper.isLoggedIn {
             Exit.title = "Log out"
@@ -44,6 +43,14 @@ class HomeScreenController: UIViewController {
         UserDefaults.standard.set(nil, forKey: "email")
         SignInHelper.startFlow()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toProjectScreen" {
+            let projectController = segue.destination as! ProjectController
+            let projectName = sender as! String
+            projectController.project = projectName
+        }
+    }
 }
 
 extension HomeScreenController: UICollectionViewDataSource{
@@ -53,7 +60,15 @@ extension HomeScreenController: UICollectionViewDataSource{
     
  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "projectCell", for: indexPath) as! ProjectCell
-        cell.projectNameLabel.text = categories[indexPath.row]
+        let projectName = categories[indexPath.row]
+        cell.projectNameLabel.text = projectName
+        cell.projectNameLabel.adjustsFontSizeToFitWidth = true
+        cell.projectImage.image = UIImage(named: projectName)
+        cell.projectImage.layer.borderWidth = 1.0
+        cell.projectImage.layer.masksToBounds = false
+        cell.projectImage.layer.borderColor = UIColor.white.cgColor
+        cell.projectImage.layer.cornerRadius = 6.0
+        cell.projectImage.clipsToBounds = true
         return cell
     }
 }
@@ -67,6 +82,6 @@ extension HomeScreenController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.collectionView.deselectItem(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: "toProjectScreen", sender: self)
+        self.performSegue(withIdentifier: "toProjectScreen", sender: categories[indexPath.row])
     }
 }
