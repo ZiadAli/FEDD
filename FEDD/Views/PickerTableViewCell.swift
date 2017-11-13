@@ -12,7 +12,7 @@ class PickerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var valueField: UITextField! {
         didSet {
-            valueField.addTarget(self, action: "textFieldDidChange:", for: UIControlEvents.editingChanged)
+            valueField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControlEvents.editingChanged)
         }
     }
     @IBOutlet weak var prompt: UILabel!
