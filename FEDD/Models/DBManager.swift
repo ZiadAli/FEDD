@@ -40,6 +40,7 @@ class DBManager {
     }
     
     static func updateLeaderboard(project:String) {
+        DBManager.removeListeners()
         let ref = Firestore.firestore().collection("Projects").document(project)
         let morningListener = ref.collection("Morning").addSnapshotListener { (collectionSnapshot, error) in
             if let error = error {
