@@ -9,6 +9,8 @@
 import UIKit
 
 class PickerTableViewCell: UITableViewCell {
+    
+    var scores = [String:Double]()
 
     @IBOutlet weak var valueField: UITextField! {
         didSet {
@@ -18,7 +20,7 @@ class PickerTableViewCell: UITableViewCell {
     @IBOutlet weak var prompt: UILabel!
     
     var pickerView = UIPickerView()
-    var value : Int = 0 {
+    var value : Double = 0 {
         didSet {
             valueField.text = String(value)
         }
@@ -44,6 +46,8 @@ class PickerTableViewCell: UITableViewCell {
     var promptText : String = "" {
         didSet {
             prompt.text = promptText
+            prompt.numberOfLines = 0
+            prompt.adjustsFontSizeToFitWidth = true
         }
     }
     
@@ -83,6 +87,21 @@ class PickerTableViewCell: UITableViewCell {
         pickerView.showsSelectionIndicator = true
     }
     
+    /*@IBAction func valueChanged(_ sender: Any) {
+        print("Value changed")
+        if let valueString = valueField.text {
+            if valueString.isEmpty {
+                scores[promptText] = 0.0
+            }
+            else {
+                let value = Double(valueString)
+                scores[promptText] = 10.0
+            }
+        }
+        else {
+            scores[promptText] = 0.0
+        }
+    }*/
 }
 
 extension PickerTableViewCell : UIPickerViewDelegate, UIPickerViewDataSource {
@@ -110,8 +129,11 @@ extension PickerTableViewCell {
     
     func textFieldDidChange(_ textField: UITextField) {
         let text = textField.text ?? ""
-        if let intVal = Int(text) {
-            sendInputBackDelegate?.getInputScore(prompt: promptText, score: intVal)
+        if text.isEmpty {
+            sendInputBackDelegate?.getInputScore(prompt: promptText, score: 0.0)
+        }
+        if let val = Double(text) {
+            sendInputBackDelegate?.getInputScore(prompt: promptText, score: val)
         }
     }
 }

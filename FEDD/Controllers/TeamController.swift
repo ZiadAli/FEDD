@@ -13,12 +13,27 @@ class TeamController: UIViewController {
     @IBOutlet weak var teamNameTitle: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     
-    var sectionTitle = ["Players","Scores"]
-    var teamMates = ["Name 1","Name 2","Name 3","Name 4"]
-    var judges = ["Judge 1","Judge 2","Judge 3"]
-    var scores = [10,20,30]
+    var sectionTitle = ["Members","Scores"]
+    var project:String!
+    var session:String!
+    var teamId:String!
+    var teamName:String!
+    var teamMates = [String]()
+    var judges = [String]()
+    var scores = [Double]()
+    var keys = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = teamName
+        
+        view.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+        tableView.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
+        //footerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: footerHeight)
+        tableView.tableFooterView = footerView
+        
         tableView.dataSource = self
         tableView.delegate = self
         // Do any additional setup after loading the view.
@@ -42,6 +57,31 @@ class TeamController: UIViewController {
     @IBAction func disqualifyClicked(_ sender: UIButton) {
     }
     @IBAction func publishClicked(_ sender: UIButton) {
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toScoreController" {
+            let inputScoreController = segue.destination as! InputScoreViewController
+            if let (scores, bonusPresent) = Scores.rubrics[project] {
+                inputScoreController.project = project
+                inputScoreController.session = session
+                inputScoreController.teamId = teamId
+                
+                if let scoreRow = sender as? Int {
+                    inputScoreController.scoreId = keys[scoreRow]
+                    inputScoreController.scoreName = judges[scoreRow]
+                    inputScoreController.pullScores = true
+                }
+                else {
+                    
+                }
+                
+                
+                
+                inputScoreController.rubrics = scores
+            }
+            //inputScoreController.isBonusPresent = bonusPresent
+        }
     }
     
 }
@@ -80,6 +120,15 @@ extension TeamController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "sectionTitleCell") as! TeamViewSectionCell
         cell.titleLabel.text = sectionTitle[section]
+        cell.backgroundColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            let row = indexPath.row
+            print("Key: \(keys[row])")
+            performSegue(withIdentifier: "toScoreController", sender: row)
+        }
     }
 }

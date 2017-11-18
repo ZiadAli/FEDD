@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GetInputScore {
-    func getInputScore(prompt: String, score: Int)
+    func getInputScore(prompt: String, score: Double)
 }
 
 class InputScoreViewController: UIViewController {
@@ -47,24 +47,26 @@ class InputScoreViewController: UIViewController {
         }
     }
     
-    var scores = [String: Int]()
+    var scores = [String: Double]()
+    var rubrics = [Score]()
     
+    var pullScores = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Scores"
         
-        rubricPrompts = ["Meets game action specifications",
-                   "Meets game action specifications 1",
-                   "Meets game action specifications 2",
-                   "Game Entertainment Value",
-                   "Game Entertainment Value 1",
-                   "Game Entertainment Value 2",
-                   "Game Entertainment Value 3",
-                   "Game Entertainment Value 4",
-                   "Game Entertainment Value 5",
-                   "Game Entertainment Value 6",
-                   "Game Entertainment Value 7",
-                   "Game Entertainment Value 8"]
-        rubricMax = [10,20,30,40,50,60,1,2,9,10,11,12]
+        for score in rubrics {
+            scores[score.name] = 0.0
+        }
+        
+        if pullScores == true {
+            DBManager.getScores(project: project, session: session, teamId: teamId, scoreId: scoreId!, completionHandler: { (pulledScores) in
+                self.scores = pulledScores
+                print(self.scores)
+                self.formTable.reloadData()
+            })
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillAppear(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillDisappear(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -85,9 +87,17 @@ class InputScoreViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    
+    var project:String!
+    var session:String!
+    var teamId:String!
+    var scoreName:String!
+    var scoreId:String?
     @IBAction func submitAction(_ sender: Any) {
-        
+        print(scores)
+        let total = Formulas.calculateTotal(project: project, scores: scores)
+        scores["Total"] = total
+        DBManager.setScores(scores: scores, project: project, session: session, teamId: teamId, scoreId: scoreId, scoreName: scoreName)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func dismissKeyboard() {
@@ -103,27 +113,44 @@ extension InputScoreViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rubricPrompts.count + (isBonusPresent ? 1 : 0)
+        return rubrics.count + (isBonusPresent ? 1 : 0)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "PickerTableViewCell", for: indexPath) as! PickerTableViewCell
-        if indexPath.row >= rubricPrompts.count {
+        cell.scores = scores
+        if indexPath.row >= rubrics.count {
             // Is the bonus field
             cell.isBonusField = true;
             if scores.index(forKey: "Bonus") != nil
             {
-                cell.value = scores["Bonus"] ?? 0
+                cell.value = scores["Bonus"] ?? 0.0
             }
         } else {
-            cell.isBonusField = false;
-            let prompt = rubricPrompts[indexPath.row]
+            let score = rubrics[indexPath.row]
+            let max = score.max!
+            
+            if max == 0 {
+                cell.isBonusField = true
+            }
+            else {
+                cell.isBonusField = false;
+                cell.maxValue = max
+            }
+            
+            let prompt = score.name!
             cell.promptText = prompt
-            cell.maxValue = rubricMax[indexPath.row]
+            
             if scores.index(forKey: prompt) != nil
             {
-                cell.value = scores[prompt] ?? 0
+                cell.value = scores[prompt] ?? 0.0
+                if cell.value <= 0.00001 {
+                    cell.valueField.text = ""
+                }
+                if cell.value.truncatingRemainder(dividingBy: 1.0) == 0 {
+                    cell.valueField.text = "\(Int(cell.value))"
+                }
             }
         }
         cell.sendInputBackDelegate = self
@@ -134,7 +161,7 @@ extension InputScoreViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension InputScoreViewController: GetInputScore {
-    func getInputScore(prompt: String, score: Int) {
+    func getInputScore(prompt: String, score: Double) {
         scores.updateValue(score, forKey: prompt)
     }
 }

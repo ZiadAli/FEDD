@@ -17,8 +17,20 @@ class HomeScreenController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DBManager.observeApprovedJudges()
+        
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        
+        self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor.red
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        self.navigationItem.backBarButtonItem?.title = " "
+        
+        
         print("oOne loading")
         DBManager.initialize()
         

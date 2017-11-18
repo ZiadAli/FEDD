@@ -31,11 +31,28 @@ class DBManager {
     ]
     
     static var listeners = [FIRListenerRegistration]()
+    static var scoreListeners = [FIRListenerRegistration]()
     static var projects:[String:Project] = [:]
+    static var judges = [String:String]()
     
     static func initialize() {
         for projectName in DBManager.projectNames {
             projects[projectName] = Project(name: projectName)
+        }
+    }
+    
+    static func observeApprovedJudges() {
+        let ref = Firestore.firestore().collection("Judges").document("Judges")
+        ref.addSnapshotListener { (documentSnapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let document = documentSnapshot else {return}
+            let data = document.data()
+            if let judgesList = data as? [String:String] {
+                judges = judgesList
+            }
         }
     }
     
@@ -59,6 +76,7 @@ class DBManager {
                 guard let morningTeams = projects[project]?.morningTeams else {return}
                 if let team = morningTeams[teamId] {
                     team.score = totalScore
+                    team.name = name
                 }
                 else {
                     let team = Team()
@@ -113,8 +131,91 @@ class DBManager {
         listeners.append(afternoonListener)
     }
     
+    static func getTeamInfo(teamId:String, session:String, project:String, completionHandler: @escaping ([String], [String:Double], [String:String]) -> ()) {
+        DBManager.removeScoreListeners()
+        let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId)
+        ref.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let document = documentSnapshot else {return}
+            let data = document.data()
+            let members = data["Members"] as? [String] ?? [String]()
+            print("Members: \(members)")
+            
+            ref.collection("Scores")
+            let scoresListener = ref.collection("Scores").addSnapshotListener({ (collectionSnapshot, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                var scoresDictionary = [String:Double]()
+                var scoresKeys = [String:String]()
+                
+                guard let collection = collectionSnapshot else {return}
+                let documents = collection.documents
+                
+                for document in documents {
+                    let scoreID = document.documentID
+                    let data = document.data()
+                    if let score = data["Total"] as? Double {
+                        let name = data["Name"] as? String ?? "--"
+                        scoresDictionary[scoreID] = score
+                        scoresKeys[scoreID] = name
+                    }
+                }
+                print(scoresDictionary)
+                print(scoresKeys)
+                completionHandler(members, scoresDictionary, scoresKeys)
+            })
+            scoreListeners.append(scoresListener)
+        }
+    }
+    
+    static func setScores(scores:[String:Double], project:String, session:String, teamId:String, scoreId:String?, scoreName:String) {
+        var ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId)
+        if let id = scoreId {
+            ref = ref.collection("Scores").document(id)
+        }
+        else {
+            ref = ref.collection("Scores").document()
+        }
+        
+        var data:[String:Any] = scores
+        data["Name"] = scoreName
+        ref.setData(data)
+    }
+    
+    static func getScores(project:String, session:String, teamId:String, scoreId:String, completionHandler: @escaping ([String:Double]) -> ()) {
+        let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId).collection("Scores").document(scoreId)
+        ref.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let document = documentSnapshot else {return}
+            var data = document.data()
+            data.removeValue(forKey: "Name")
+            data.removeValue(forKey: "Total")
+            
+            if let scores = data as? [String:Double] {
+                completionHandler(scores)
+            }
+            else {
+                completionHandler([String:Double]())
+            }
+        }
+    }
+    
     static func removeListeners() {
         for listener in listeners {
+            listener.remove()
+        }
+    }
+    
+    static func removeScoreListeners() {
+        for listener in scoreListeners {
             listener.remove()
         }
     }

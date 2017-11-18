@@ -24,10 +24,13 @@ class ProjectController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = project
         DBManager.updateLeaderboard(project: project)
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        
         morningTeams = (DBManager.projects[project]?.morningTeams)!
         afternoonTeams = (DBManager.projects[project]?.afternoonTeams)!
         updateTeamList()
@@ -60,6 +63,51 @@ class ProjectController: UIViewController {
         updateTeamList()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toTeamController" {
+            let teamController = segue.destination as! TeamController
+            
+            
+            let indexPathRow = sender as! Int
+            var teamList = morningTeamsList
+            if currentSession == "Afternoon" {
+                teamList = afternoonTeamsList
+            }
+            
+            let team = teamList[indexPathRow]
+            let teamId = team.id!
+            let teamName = team.name!
+            
+            teamController.teamName = teamName
+            
+            DBManager.getTeamInfo(teamId: teamId, session: currentSession, project: project, completionHandler: { (members, scoresDictionary, scoresKeys) in
+                teamController.teamMates = members
+                
+                var judges = [String]()
+                var scores = [Double]()
+                var keys = [String]()
+                
+                for score in Array(scoresDictionary.keys) {
+                    if let scoreValue = scoresDictionary[score] {
+                        if let scoreName = scoresKeys[score] {
+                            keys.append(score)
+                            judges.append(scoreName)
+                            scores.append(scoreValue)
+                        }
+                    }
+                }
+                
+                teamController.project = self.project
+                teamController.session = self.currentSession
+                teamController.teamId = teamId
+                teamController.keys = keys
+                teamController.judges = judges
+                teamController.scores = scores
+                teamController.tableView.reloadData()
+            })
+        }
+    }
+    
 }
 
 extension ProjectController: UITableViewDataSource{
@@ -77,13 +125,14 @@ extension ProjectController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath) as! TeamViewCell
         var teamList = morningTeamsList
         if currentSession == "Afternoon" {
             teamList = afternoonTeamsList
         }
         let team = teamList[indexPath.row]
-        cell.textLabel?.text = "\(team.name!) \(team.score)"
+        cell.leftLabel.text = team.name!
+        cell.rightLabel.text = "\(team.score)"
         
         return cell
     }
@@ -92,7 +141,12 @@ extension ProjectController: UITableViewDataSource{
 
 extension ProjectController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        performSegue(withIdentifier: "toTeamController", sender: nil)
+        if let userEmail = UserDefaults.standard.value(forKeyPath: "email") as? String {
+            let email = userEmail.lowercased()
+            if let _ = DBManager.judges[email] {
+                tableView.deselectRow(at: indexPath, animated: false)
+                performSegue(withIdentifier: "toTeamController", sender: indexPath.row)
+            }
+        }
     }
 }

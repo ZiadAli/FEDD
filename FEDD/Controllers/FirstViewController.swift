@@ -11,6 +11,8 @@ import UIKit
 class FirstViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet var loginButtonView: UIView!
+    @IBOutlet var leaderboardButtonView: UIView!
     
     @IBAction func leaderboard(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "loggedIn")
@@ -23,7 +25,20 @@ class FirstViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginButton.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5) 
+        //loginButton.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
+        
+        loginButtonView.layer.shadowColor = UIColor.black.cgColor
+        loginButtonView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        loginButtonView.layer.shadowRadius = 3
+        loginButtonView.layer.shadowOpacity = 0.7
+        loginButtonView.layer.cornerRadius = 5
+        
+        leaderboardButtonView.layer.shadowColor = UIColor.black.cgColor
+        leaderboardButtonView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        leaderboardButtonView.layer.shadowRadius = 3
+        leaderboardButtonView.layer.shadowOpacity = 0.7
+        leaderboardButtonView.layer.cornerRadius = 5
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.signInSuccess), name: NSNotification.Name(rawValue: "signInSuccess"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.signInFailure), name: NSNotification.Name(rawValue: "signInFailure"), object: nil)
         GIDSignIn.sharedInstance().uiDelegate = self
