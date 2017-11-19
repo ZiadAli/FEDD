@@ -134,12 +134,18 @@ extension ProjectController: UITableViewDataSource{
         cell.leftLabel.text = team.name!
         let score = Double(round(1000*team.score)/1000)
         cell.rightLabel.text = "\(score)"
-        if team.published == false {
-            cell.backgroundColor = UIColor.lightGray
+        if let userEmail = UserDefaults.standard.value(forKeyPath: "email") as? String {
+            let email = userEmail.lowercased()
+            if let _ = DBManager.judges[email] {
+                if team.published == false {
+                    cell.backgroundColor = UIColor.lightGray
+                }
+                else {
+                    cell.backgroundColor = UIColor.white
+                }
+            }
         }
-        else {
-            cell.backgroundColor = UIColor.white
-        }
+        
         return cell
     }
 
