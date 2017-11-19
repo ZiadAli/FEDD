@@ -16,5 +16,7 @@ class Team:NSObject {
     var sessionTime:String!
     var id:String!
     var score:Double = 0.0
+    var hovercraftTime = 0.0
+    var published = true
     
 }

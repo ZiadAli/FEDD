@@ -42,6 +42,9 @@ class PickerTableViewCell: UITableViewCell {
         }
     }
     
+    var isDiscreteField = false
+    var pickerValues = [Int]()
+    
     var maxValue = 1
     var promptText : String = "" {
         didSet {
@@ -86,33 +89,26 @@ class PickerTableViewCell: UITableViewCell {
         valueField.inputView = pickerView
         pickerView.showsSelectionIndicator = true
     }
-    
-    /*@IBAction func valueChanged(_ sender: Any) {
-        print("Value changed")
-        if let valueString = valueField.text {
-            if valueString.isEmpty {
-                scores[promptText] = 0.0
-            }
-            else {
-                let value = Double(valueString)
-                scores[promptText] = 10.0
-            }
-        }
-        else {
-            scores[promptText] = 0.0
-        }
-    }*/
 }
 
 extension PickerTableViewCell : UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if isDiscreteField {
+            return String(pickerValues[row])
+        }
         return String(row)
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        valueField.text = String(row)
-        textFieldDidChange(valueField)
+        if isDiscreteField {
+            valueField.text = String(pickerValues[row])
+            textFieldDidChange(valueField)
+        }
+        else {
+            valueField.text = String(row)
+            textFieldDidChange(valueField)
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -120,6 +116,9 @@ extension PickerTableViewCell : UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if isDiscreteField {
+            return pickerValues.count
+        }
         return maxValue+1;
     }
     

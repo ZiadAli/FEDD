@@ -29,6 +29,7 @@ class InputScoreViewController: UIViewController {
         }
     }
     
+    var bonusPresent = true
     var isBonusPresent = true {
         didSet {
             formTable.reloadData()
@@ -55,6 +56,7 @@ class InputScoreViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Scores"
         
+        isBonusPresent = bonusPresent
         for score in rubrics {
             scores[score.name] = 0.0
         }
@@ -129,14 +131,20 @@ extension InputScoreViewController: UITableViewDelegate, UITableViewDataSource {
             }
         } else {
             let score = rubrics[indexPath.row]
-            let max = score.max!
+            let max = score.max
             
             if max == 0 {
                 cell.isBonusField = true
             }
-            else {
-                cell.isBonusField = false;
+            else if max > 0 {
+                cell.isBonusField = false
                 cell.maxValue = max
+            }
+            else {
+                cell.isBonusField = false
+                cell.maxValue = 10
+                cell.isDiscreteField = true
+                cell.pickerValues = score.pickerValues
             }
             
             let prompt = score.name!

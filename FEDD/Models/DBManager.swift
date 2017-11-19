@@ -107,24 +107,37 @@ class DBManager {
                 let data = document.data()
                 let name = data["Name"] as? String ?? "[Blank]"
                 let totalScore = data["Total"] as? Double ?? 0.0
+                let hovercraftTime = data["Hovercraft"] as? Double ?? 0.0
+                let published = data["Published"] as? Bool ?? true
                 
                 guard let morningTeams = projects[project]?.morningTeams else {return}
                 if let team = morningTeams[teamId] {
                     team.score = totalScore
                     team.name = name
+                    team.published = published
+                    if project == "Hovercraft" {
+                        team.hovercraftTime = hovercraftTime
+                    }
                 }
                 else {
                     let team = Team()
                     team.name = name
                     team.id = teamId
+                    team.published = published
                     team.sessionTime = "Morning"
                     team.project = project
                     team.score = totalScore
+                    if project == "Hovercraft" {
+                        team.hovercraftTime = hovercraftTime
+                    }
                     
                     projects[project]?.morningTeams[teamId] = team
                 }
                 
                 print("Team: \(name) Score: \(totalScore)")
+            }
+            if project == "Hovercraft" {
+                DBManager.sortHovercraftTeams(session: "Morning")
             }
             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "Leaderboard Updated")))
         }
@@ -142,28 +155,70 @@ class DBManager {
                 let data = document.data()
                 let name = data["Name"] as? String ?? "[Blank]"
                 let totalScore = data["Total"] as? Double ?? 0.0
+                let hovercraftTime = data["Hovercraft"] as? Double ?? 0.0
+                let published = data["Published"] as? Bool ?? true
                 
                 guard let afternoonTeams = projects[project]?.afternoonTeams else {return}
                 if let team = afternoonTeams[teamId] {
                     team.score = totalScore
+                    team.name = name
+                    if project == "Hovercraft" {
+                        team.hovercraftTime = hovercraftTime
+                    }
+                    team.published = published
                 }
                 else {
                     let team = Team()
                     team.name = name
                     team.id = teamId
+                    team.published = published
                     team.sessionTime = "Afternoon"
                     team.project = project
                     team.score = totalScore
+                    if project == "Hovercraft" {
+                        team.hovercraftTime = hovercraftTime
+                    }
                     
                     projects[project]?.afternoonTeams[teamId] = team
                 }
-                
                 print("Team: \(name) Score: \(totalScore)")
+            }
+            if project == "Hovercraft" {
+                DBManager.sortHovercraftTeams(session: "Afternoon")
             }
             NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "Leaderboard Updated")))
         }
         listeners.append(morningListener)
         listeners.append(afternoonListener)
+    }
+    
+    static func sortHovercraftTeams(session:String) {
+        var sessionTeams = projects["Hovercraft"]?.morningTeams
+        if session == "Afternoon" {
+            sessionTeams = projects["Hovercraft"]?.afternoonTeams
+        }
+        
+        var scoringTeams = [Team]()
+        guard let teams = sessionTeams else {return}
+        for team in Array(teams.values) {
+            if team.hovercraftTime > 0 {
+                scoringTeams.append(team)
+            }
+        }
+        
+        scoringTeams.sort { (team1, team2) -> Bool in
+            return team1.hovercraftTime < team2.hovercraftTime
+        }
+        
+        var addedScore = 200.0
+        for team in scoringTeams {
+            let teamId = team.id
+            guard let scoringTeam = sessionTeams![teamId!] else {return}
+            if addedScore > 0 {
+                scoringTeam.score += addedScore
+                addedScore -= 5.0
+            }
+        }
     }
     
     static func getTeamInfo(teamId:String, session:String, project:String, completionHandler: @escaping ([String], [String:Double], [String:String]) -> ()) {
@@ -220,7 +275,29 @@ class DBManager {
         var data:[String:Any] = scores
         data["Name"] = scoreName
         ref.setData(data)
-        DBManager.updatedPublishedStatus(project: project, session: session, teamId: teamId, published: false)
+        if project != "Hovercraft" {
+            DBManager.updatedPublishedStatus(project: project, session: session, teamId: teamId, published: false)
+        }
+        else {
+            if let time = data["Course completion time in seconds"] as? Double {
+                DBManager.setHovercraftTime(session: session, teamId: teamId, time: time)
+            }
+        }
+    }
+    
+    static func setHovercraftTime(session:String, teamId:String, time:Double) {
+        let ref = Firestore.firestore().collection("Projects").document("Hovercraft").collection(session).document(teamId)
+        ref.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let document = documentSnapshot else {return}
+            var data = document.data()
+            data["Published"] = false
+            data["Hovercraft"] = time
+            ref.setData(data)
+        }
     }
     
     static func getScores(project:String, session:String, teamId:String, scoreId:String, completionHandler: @escaping ([String:Double]) -> ()) {

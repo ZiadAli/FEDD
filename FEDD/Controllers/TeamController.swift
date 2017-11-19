@@ -79,6 +79,7 @@ class TeamController: UIViewController {
                 inputScoreController.project = project
                 inputScoreController.session = session
                 inputScoreController.teamId = teamId
+                inputScoreController.bonusPresent = bonusPresent
                 
                 if let scoreRow = sender as? Int {
                     inputScoreController.scoreId = keys[scoreRow]
@@ -135,7 +136,8 @@ extension TeamController: UITableViewDataSource{
             cell.rightLabel.text = ""
         }else{
             cell.leftLabel.text = judges[indexPath.row]
-            cell.rightLabel.text = scores[indexPath.row].description
+            let score = Double(round(1000*scores[indexPath.row])/1000)
+            cell.rightLabel.text = score.description
         }
         return cell
     }
