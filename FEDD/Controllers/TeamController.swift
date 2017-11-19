@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class TeamController: UIViewController {
 
@@ -44,7 +45,10 @@ class TeamController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func addScore(_ sender: Any) {
+        performSegue(withIdentifier: "toScoreController", sender: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -55,8 +59,17 @@ class TeamController: UIViewController {
     }
     */
     @IBAction func disqualifyClicked(_ sender: UIButton) {
+        DBManager.publishScore(project: project, session: session, teamId: teamId, score: -1000.0)
     }
+    
     @IBAction func publishClicked(_ sender: UIButton) {
+        var averageScore = 0.0
+        var totalScore = 0.0
+        for score in scores {
+            totalScore += score
+        }
+        averageScore = totalScore/Double(scores.count)
+        DBManager.publishScore(project: project, session: session, teamId: teamId, score: averageScore)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -73,11 +86,13 @@ class TeamController: UIViewController {
                     inputScoreController.pullScores = true
                 }
                 else {
-                    
+                    let scoreId = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId).collection("Scores").document().documentID
+                    print(scoreId)
+                    inputScoreController.scoreId = scoreId
+                    let name = UserDefaults.standard.value(forKey: "fullName") as? String ?? "--"
+                    inputScoreController.scoreName = name
+                    inputScoreController.pullScores = false
                 }
-                
-                
-                
                 inputScoreController.rubrics = scores
             }
             //inputScoreController.isBonusPresent = bonusPresent
@@ -96,6 +111,20 @@ extension TeamController: UITableViewDataSource{
             return teamMates.count// Number of Students
         }else{
             return judges.count// Number of judges
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 1 {
+            return true
+        }
+        return false
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let scoreId = keys[indexPath.row]
+            DBManager.deleteScore(project: project, session: session, teamId: teamId, scoreId: scoreId)
         }
     }
     

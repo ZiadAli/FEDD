@@ -25,28 +25,34 @@ class Formulas {
     
     static func calculateTotal(project:String, scores:[String:Double]) -> Double {
         var total = 0.0
-        for score in Array(scores.values) {
-            total += score
+        if formulas[project] == false {
+            for score in Array(scores.values) {
+                total += score
+            }
         }
+        else {
+            
+        }
+        
         return total
     }
     
     static let formulas = [
-        "3D Printing":nil,
-        "Animatronics":Scores.getAnimatronics(),
-        "Arcade Game":Scores.getArcadeGame(),
-        "Automatic Chicken Coop Door":Scores.getChickenCoop(),
-        "Bubble Blowing Machine":Scores.getBubbleMachine(),
-        "Collapsible Bridge":Scores.getCollapsibleBridge(),
-        "Concrete Canoe":Scores.getConcreteCanoe(),
-        "Educational Computer Game":Scores.getEducationalGame(),
-        //"Fabric Bucket":Scores.getHovercraft(),
-        "Fountain":Scores.getFountain(),
-        "Hovercraft":Scores.getHovercraft(),
-        "Mechanical Music Machine":Scores.getMusicMaker(),
-        //"Nuclear Power Probe":Scores.getnuc,
-        //"Precision Launcher",
-        "Toy Design":Scores.getToyDesign()
+        "3D Printing":false,
+        "Animatronics":false,
+        "Arcade Game":false,
+        "Automatic Chicken Coop Door":false,
+        "Bubble Blowing Machine":false,
+        "Collapsible Bridge":true,
+        "Concrete Canoe":false,
+        "Educational Computer Game":true,
+        "Fabric Bucket":true,
+        "Fountain":false,
+        "Hovercraft":true,
+        "Mechanical Music Machine":false,
+        "Nuclear Power Probe":true,
+        "Precision Launcher":true,
+        "Toy Design":false
     ]
 }
 

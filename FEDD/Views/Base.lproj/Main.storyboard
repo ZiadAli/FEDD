@@ -332,7 +332,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Team Name" id="Sg7-E5-zcP">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1uY-zy-TIG"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1uY-zy-TIG">
+                            <connections>
+                                <action selector="addScore:" destination="b68-ck-z99" id="w7L-91-eE2"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="fsQ-tv-1kk" id="E88-aV-Hhr"/>

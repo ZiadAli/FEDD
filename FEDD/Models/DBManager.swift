@@ -41,6 +41,41 @@ class DBManager {
         }
     }
     
+    static func publishScore(project:String, session:String, teamId:String, score:Double) {
+        let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId)
+        ref.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let document = documentSnapshot else {return}
+            var data = document.data()
+            data["Total"] = score
+            ref.setData(data)
+            DBManager.updatedPublishedStatus(project: project, session: session, teamId: teamId, published: true)
+        }
+    }
+    
+    static func updatedPublishedStatus(project:String, session:String, teamId:String, published:Bool) {
+        let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId)
+        ref.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let document = documentSnapshot else {return}
+            var data = document.data()
+            data["Published"] = published
+            ref.setData(data)
+        }
+    }
+    
+    static func deleteScore(project:String, session:String, teamId:String, scoreId:String) {
+        let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId).collection("Scores").document(scoreId)
+        ref.delete()
+        DBManager.updatedPublishedStatus(project: project, session: session, teamId: teamId, published: false)
+    }
+    
     static func observeApprovedJudges() {
         let ref = Firestore.firestore().collection("Judges").document("Judges")
         ref.addSnapshotListener { (documentSnapshot, error) in
@@ -185,6 +220,7 @@ class DBManager {
         var data:[String:Any] = scores
         data["Name"] = scoreName
         ref.setData(data)
+        DBManager.updatedPublishedStatus(project: project, session: session, teamId: teamId, published: false)
     }
     
     static func getScores(project:String, session:String, teamId:String, scoreId:String, completionHandler: @escaping ([String:Double]) -> ()) {
@@ -218,14 +254,6 @@ class DBManager {
         for listener in scoreListeners {
             listener.remove()
         }
-    }
-    
-    static func addScore(team:Team, score:Score) {
-        let sessionTime = team.sessionTime!
-        let project = team.project!
-        let ref = Firestore.firestore().collection(sessionTime).document(project).collection("Teams").document(team.id).collection("Scores").document(score.name)
-        
-        ref.setData(["Score1":45])
     }
     
 }
