@@ -50,7 +50,7 @@ class HomeScreenController: UIViewController {
     
     @IBAction func exitAction(_ sender: Any) {
         GIDSignIn.sharedInstance().signOut()
-        UserDefaults.standard.set(nil, forKey: "loggedIn")
+        UserDefaults.standard.set(false, forKey: "loggedIn")
         UserDefaults.standard.set(nil, forKey: "fullName")
         UserDefaults.standard.set(nil, forKey: "email")
         SignInHelper.startFlow()

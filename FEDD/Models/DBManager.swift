@@ -41,6 +41,27 @@ class DBManager {
         }
     }
     
+    static func createTeam(project:String, session:String, info:[String:String]) {
+        let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document()
+        
+        var data = [String:Any]()
+        var members = [String]()
+        guard let name = info["Team Name"] else {return}
+        for key in Array(info.keys) {
+            if key != "Team Name" {
+                let teamMember = info[key]!
+                if teamMember.isEmpty == false {
+                    members.append(info[key]!)
+                }
+            }
+        }
+        data["Name"] = name
+        data["Members"] = members
+        data["Published"] = true
+        data["Total"] = 0.0
+        ref.setData(data)
+    }
+    
     static func publishScore(project:String, session:String, teamId:String, score:Double) {
         let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId)
         ref.getDocument { (documentSnapshot, error) in
@@ -51,6 +72,9 @@ class DBManager {
             guard let document = documentSnapshot else {return}
             var data = document.data()
             data["Total"] = score
+            if score == -1000.0 && project == "Hovercraft" {
+                data["Hovercraft"] = 0.0
+            }
             ref.setData(data)
             DBManager.updatedPublishedStatus(project: project, session: session, teamId: teamId, published: true)
         }
@@ -211,11 +235,16 @@ class DBManager {
         }
         
         var addedScore = 200.0
+        var lastTime = 0.0
         for team in scoringTeams {
             let teamId = team.id
             guard let scoringTeam = sessionTeams![teamId!] else {return}
             if addedScore > 0 {
+                if scoringTeam.hovercraftTime == lastTime {
+                    addedScore += 5.0
+                }
                 scoringTeam.score += addedScore
+                lastTime = scoringTeam.hovercraftTime
                 addedScore -= 5.0
             }
         }

@@ -14,7 +14,7 @@ class TeamController: UIViewController {
     @IBOutlet weak var teamNameTitle: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     
-    var sectionTitle = ["Members","Scores"]
+    var sectionTitle = ["Members","Scores","Requirements"]
     var project:String!
     var session:String!
     var teamId:String!
@@ -23,6 +23,7 @@ class TeamController: UIViewController {
     var judges = [String]()
     var scores = [Double]()
     var keys = [String]()
+    var requirements = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +61,7 @@ class TeamController: UIViewController {
     */
     @IBAction func disqualifyClicked(_ sender: UIButton) {
         DBManager.publishScore(project: project, session: session, teamId: teamId, score: -1000.0)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func publishClicked(_ sender: UIButton) {
@@ -68,8 +70,11 @@ class TeamController: UIViewController {
         for score in scores {
             totalScore += score
         }
-        averageScore = totalScore/Double(scores.count)
+        if scores.count > 0 {
+            averageScore = totalScore/Double(scores.count)
+        }
         DBManager.publishScore(project: project, session: session, teamId: teamId, score: averageScore)
+        navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -104,15 +109,17 @@ class TeamController: UIViewController {
 
 extension TeamController: UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return sectionTitle.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(section == 0){
             return teamMates.count// Number of Students
-        }else{
+        }
+        else if section == 1 {
             return judges.count// Number of judges
         }
+        return requirements.count
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -130,16 +137,25 @@ extension TeamController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "teamViewCell") as! TeamViewCell
         if( indexPath.section == 0){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "teamViewCell") as! TeamViewCell
             cell.leftLabel.text = teamMates[indexPath.row]
             cell.rightLabel.text = ""
-        }else{
+            return cell
+        }
+        else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "teamViewCell") as! TeamViewCell
             cell.leftLabel.text = judges[indexPath.row]
             let score = Double(round(1000*scores[indexPath.row])/1000)
             cell.rightLabel.text = score.description
+            return cell
         }
-        return cell
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "textCell")!
+            cell.textLabel?.text = requirements[indexPath.row]
+            cell.textLabel?.numberOfLines = 0
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

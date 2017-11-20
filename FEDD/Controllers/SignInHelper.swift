@@ -17,7 +17,8 @@ class SignInHelper {
     }
     
     static func startFlow() {
-        if(UserDefaults.standard.object(forKey: "loggedIn") != nil) {
+        let loggedIn = UserDefaults.standard.bool(forKey: "loggedIn")
+        if loggedIn == true {
             showLeaderboard()
         }
         else {

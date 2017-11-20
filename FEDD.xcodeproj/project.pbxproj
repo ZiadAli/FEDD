@@ -20,6 +20,8 @@
 		99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99294FC11F8EFD8E00A2CF7E /* DBManager.swift */; };
 		99294FC51F8F009900A2CF7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99294FC41F8F009900A2CF7E /* GoogleService-Info.plist */; };
 		99294FC71F8F02AF00A2CF7E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99294FC61F8F02AF00A2CF7E /* Score.swift */; };
+		9939522B1FC2205300FF49B0 /* TeamInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939522A1FC2205300FF49B0 /* TeamInfoCell.swift */; };
+		9939522D1FC2206400FF49B0 /* CreateTeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939522C1FC2206400FF49B0 /* CreateTeamController.swift */; };
 		99D39D581FB6610A00A8AABB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D39D571FB6610A00A8AABB /* Project.swift */; };
 		99D39D5A1FB7B7B100A8AABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99D39D591FB7B7B100A8AABB /* GoogleService-Info.plist */; };
 		99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */; };
@@ -50,6 +52,8 @@
 		99294FC11F8EFD8E00A2CF7E /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		99294FC41F8F009900A2CF7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99294FC61F8F02AF00A2CF7E /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		9939522A1FC2205300FF49B0 /* TeamInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfoCell.swift; sourceTree = "<group>"; };
+		9939522C1FC2206400FF49B0 /* CreateTeamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamController.swift; sourceTree = "<group>"; };
 		99D39D571FB6610A00A8AABB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		99D39D591FB7B7B100A8AABB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99FC9DED1F6B8AD90059E14E /* FEDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FEDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +86,7 @@
 			children = (
 				7829E54E1FB6597F00BDF393 /* TeamViewCell.swift */,
 				7829E5501FB65C9900BDF393 /* TeamViewSectionCell.swift */,
+				9939522A1FC2205300FF49B0 /* TeamInfoCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 				0B73DA771FB6AF370082E347 /* FirstViewController.swift */,
 				786D40E81F8F03E80016A5CA /* TeamController.swift */,
 				0B73DA7E1FB7ABF00082E347 /* SignInHelper.swift */,
+				9939522C1FC2206400FF49B0 /* CreateTeamController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -351,12 +357,14 @@
 			files = (
 				7829E54F1FB6597F00BDF393 /* TeamViewCell.swift in Sources */,
 				99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */,
+				9939522B1FC2205300FF49B0 /* TeamInfoCell.swift in Sources */,
 				99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */,
 				0B73DA711FB659F70082E347 /* PickerTableViewCell.swift in Sources */,
 				786D40E91F8F03E80016A5CA /* TeamController.swift in Sources */,
 				99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */,
 				99D39D581FB6610A00A8AABB /* Project.swift in Sources */,
 				99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */,
+				9939522D1FC2206400FF49B0 /* CreateTeamController.swift in Sources */,
 				0B73DA6E1FB658DB0082E347 /* InputScoreViewController.swift in Sources */,
 				789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */,
 				789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */,

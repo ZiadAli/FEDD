@@ -12,6 +12,7 @@ class ProjectController: UIViewController {
     
     var teams:[Team]!
 
+    @IBOutlet var createTeamButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var morningAfterNoonSegmentedControl: UISegmentedControl!
     var project:String!
@@ -34,6 +35,14 @@ class ProjectController: UIViewController {
         morningTeams = (DBManager.projects[project]?.morningTeams)!
         afternoonTeams = (DBManager.projects[project]?.afternoonTeams)!
         updateTeamList()
+        
+        createTeamButton.isEnabled = false
+        if let userEmail = UserDefaults.standard.value(forKeyPath: "email") as? String {
+            let email = userEmail.lowercased()
+            if let _ = DBManager.judges[email] {
+                createTeamButton.isEnabled = true
+            }
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateTeamList), name: NSNotification.Name(rawValue: "Leaderboard Updated"), object: nil)
     }
@@ -103,8 +112,15 @@ class ProjectController: UIViewController {
                 teamController.keys = keys
                 teamController.judges = judges
                 teamController.scores = scores
+                teamController.requirements = Scores.requirements[self.project]!
                 teamController.tableView.reloadData()
             })
+        }
+        
+        if segue.identifier == "toCreateTeamController" {
+            let destination = segue.destination as! CreateTeamController
+            destination.project = project
+            destination.initialSegmenet = morningAfterNoonSegmentedControl.selectedSegmentIndex
         }
     }
     
@@ -134,6 +150,9 @@ extension ProjectController: UITableViewDataSource{
         cell.leftLabel.text = team.name!
         let score = Double(round(1000*team.score)/1000)
         cell.rightLabel.text = "\(score)"
+        if score < -50 {
+            cell.rightLabel.text = "--"
+        }
         if let userEmail = UserDefaults.standard.value(forKeyPath: "email") as? String {
             let email = userEmail.lowercased()
             if let _ = DBManager.judges[email] {

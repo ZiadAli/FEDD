@@ -68,7 +68,12 @@ class Formulas {
             print(numerator)
             print(denominator)
             print(total)
-            total = (numerator/denominator)*(1+total/10.0)
+            if denominator == 0.0 {
+                total = 0
+            }
+            else {
+                total = (numerator/denominator)*(1+total/10.0)
+            }
             break
         case "Fountain":
             for scoreKey in Array(scores.keys) {
@@ -81,13 +86,13 @@ class Formulas {
             }
             break
         case "Precision Launcher":
-            let firstDistance = scores["First launch distance"]!
-            let secondDistance = scores["Second launch distance"]!
-            let thirdDistance = scores["Third launch distance"]!
+            let firstDistance = scores["First launch distance"] ?? 0.0
+            let secondDistance = scores["Second launch distance"] ?? 0.0
+            let thirdDistance = scores["Third launch distance"] ?? 0.0
             
-            let firstPoints = scores["First launch points"]!
-            let secondPoints = scores["Second launch points"]!
-            let thirdPoints = scores["Third launch points"]!
+            let firstPoints = scores["First launch points"] ?? 0.0
+            let secondPoints = scores["Second launch points"] ?? 0.0
+            let thirdPoints = scores["Third launch points"] ?? 0.0
             
             let first = getPrecisionLauncherScore(distance: firstDistance, value: firstPoints)
             let second = getPrecisionLauncherScore(distance: secondDistance, value: secondPoints)
@@ -95,8 +100,8 @@ class Formulas {
             
             var points = [first, second, third]
             points = points.sorted()
-            let subtotal = points[1] + points[2] + scores["Bonus"]!
-            var multiplier = scores["Multipliers"]!
+            let subtotal = points[1] + points[2] + (scores["Bonus"] ?? 0.0)
+            var multiplier = scores["Multipliers"] ?? 0.0
             if multiplier == 0.0 {multiplier = 1.0}
             total = multiplier*subtotal
             break
@@ -137,6 +142,99 @@ class Scores {
         "Nuclear Power Probe":Scores.getNuclearProbe(),
         "Precision Launcher":Scores.getPrecisionLauncher(),
         "Toy Design":Scores.getToyDesign()
+    ]
+    
+    static let requirements = [
+        "3D Printing":[
+            "Easily portable",
+            "Has two distinct functions",
+            "Comprised 25% of 3D printing material Research component provided"
+        ],
+        "Animatronics":[
+            "Within required dimensions",
+            "Research component provided"
+        ],
+        "Arcade Game":[
+            "Meets basic competition requirements",
+            "Within required dimensions",
+            "Research component provided"
+        ],
+        "Automatic Chicken Coop Door":[
+            "Meets basic competition requirements",
+            "Research component provided"
+        ],
+        "Bubble Blowing Machine":[
+            "Meets basic competition requirements",
+            "No commercial bubble-blowing parts",
+            "Recipe submitted",
+            "Automatically powered by one power source",
+            "Continuously and automatically operates for 1 minute",
+            "Bubbles detach from the machine (no drooling)",
+            "Poster includes all research components"
+        ],
+        "Collapsible Bridge":[
+            "Disassembled Components fit within a 12”x12x12” cube",
+            "Total weight of parts is less than 5lbs",
+            "Can be assembled in under 60 seconds",
+            "Spans 5 feet when assembled",
+            "Must have a designated point at which to attach weight",
+            "Bears at least 60lbs of load applied at designated point"
+        ],
+        "Concrete Canoe":[
+            "Research component presented in required format",
+            "Dimensions less than or equal to 18” (L) x 6” (W) x 5” (H)",
+            "Exterior surface has smooth finish",
+            "V-shaped cross section along minor axis",
+            "V-shaped bow and stern when viewed in plan",
+            "Resembles a canoe",
+            "Entire canoe made of concrete"
+        ],
+        "Educational Computer Game":[
+            "Research component included",
+            "Computer game available for play on FEDD",
+            "Project Poster presented at FEDD"
+        ],
+        "Fabric Bucket":[
+            "Portable when full of water; must be able to hang from a hook for testing",
+            "Before adding water, the bucket fits completely inside a container with a lid completely closed with a width of 6 in, length of 6 in, and height of 6 in.",
+            "Not larger than 30 inches in height when full of water, including the transport/hanging mechanism (handle)",
+            "Holds at least one gallon of water without leaking for 1 minute",
+            "Contains at least 50% of a fibrous material in the water containment area of the bucket",
+            "Does not include commercial or pre-made items such as tarps, plastic bag or bottles, bags, backpacks or pre-laminated fabrics",
+            "Poster on the research and design for their project that includes five references (two from peer reviewed journals). Posters also contain the materials list for the design"
+        ],
+        "Fountain":[
+            "Continuously fountains water",
+            "2'x2' footprint",
+            "Provided research component (3 deliverables)"
+        ],
+        "Hovercraft":[
+            "Attended FEDD pre-event",
+            "Battery-power or line-power (no gasoline-power)",
+            "Research component provided"
+        ],
+        "Mechanical Music Machine":[
+            "Safe material",
+            "50% mechanical",
+            "Music plays for 10 seconds",
+            "Poster board advertisement",
+            "Research component provided"
+        ],
+        "Nuclear Power Probe":[
+            "Piping is PVC",
+            "Waterproof Device",
+            "Graph or Equation has been presented",
+            "Accuracy within +/-2.5% of reactor power",
+            "Research component provided"
+        ],
+        "Precision Launcher":[
+            "Satisfies all criteria",
+            "Launcher fits inside imaginary 4-foot cube"
+        ],
+        "Toy Design":[
+            "Satisfies all criteria",
+            "Research component provided"
+        ]
     ]
     
     static func get3DPrinting() -> (scores:[Score], bonusPresent:Bool) {
@@ -294,12 +392,12 @@ class Scores {
     
     static func getToyDesign() -> (scores:[Score], bonusPresent:Bool) {
         var scores = [Score]()
-        scores.append(Score(name: "Research component", max: 34))
-        scores.append(Score(name: "Entertainment Value", max: 33))
-        scores.append(Score(name: "Concept originality/creativity", max: 33))
-        scores.append(Score(name: "Craftsmanship/Aesthetics/Safety", max: 10))
-        scores.append(Score(name: "Test process/assessments/meets size and cost restrictions", max: 10))
-        scores.append(Score(name: "Meets learning objective", max: 10))
+        scores.append(Score(name: "Research component", max: 10))
+        scores.append(Score(name: "Entertainment Value", max: 10))
+        scores.append(Score(name: "Concept originality/creativity", max: 20))
+        scores.append(Score(name: "Craftsmanship/Aesthetics/Safety", max: 20))
+        scores.append(Score(name: "Test process/assessments/meets size and cost restrictions", max: 20))
+        scores.append(Score(name: "Meets learning objective", max: 20))
         return (scores, true)
     }
 }
