@@ -7,15 +7,55 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B73DA6E1FB658DB0082E347 /* InputScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B73DA6D1FB658DB0082E347 /* InputScoreViewController.swift */; };
+		0B73DA711FB659F70082E347 /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B73DA6F1FB659F70082E347 /* PickerTableViewCell.swift */; };
+		0B73DA721FB659F70082E347 /* PickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0B73DA701FB659F70082E347 /* PickerTableViewCell.xib */; };
+		0B73DA781FB6AF370082E347 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B73DA771FB6AF370082E347 /* FirstViewController.swift */; };
+		0B73DA7F1FB7ABF00082E347 /* SignInHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B73DA7E1FB7ABF00082E347 /* SignInHelper.swift */; };
+		7829E54F1FB6597F00BDF393 /* TeamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829E54E1FB6597F00BDF393 /* TeamViewCell.swift */; };
+		7829E5511FB65C9900BDF393 /* TeamViewSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7829E5501FB65C9900BDF393 /* TeamViewSectionCell.swift */; };
+		786D40E91F8F03E80016A5CA /* TeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786D40E81F8F03E80016A5CA /* TeamController.swift */; };
+		789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */; };
+		789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */; };
+		99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99294FC11F8EFD8E00A2CF7E /* DBManager.swift */; };
+		99294FC51F8F009900A2CF7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99294FC41F8F009900A2CF7E /* GoogleService-Info.plist */; };
+		99294FC71F8F02AF00A2CF7E /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99294FC61F8F02AF00A2CF7E /* Score.swift */; };
+		9939522B1FC2205300FF49B0 /* TeamInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939522A1FC2205300FF49B0 /* TeamInfoCell.swift */; };
+		9939522D1FC2206400FF49B0 /* CreateTeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939522C1FC2206400FF49B0 /* CreateTeamController.swift */; };
+		99D39D581FB6610A00A8AABB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D39D571FB6610A00A8AABB /* Project.swift */; };
+		99D39D5A1FB7B7B100A8AABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99D39D591FB7B7B100A8AABB /* GoogleService-Info.plist */; };
 		99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */; };
 		99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF21F6B8AD90059E14E /* ViewController.swift */; };
 		99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DF41F6B8AD90059E14E /* Main.storyboard */; };
 		99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF71F6B8AD90059E14E /* FEDD.xcdatamodeld */; };
 		99FC9DFB1F6B8AD90059E14E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DFA1F6B8AD90059E14E /* Assets.xcassets */; };
 		99FC9DFE1F6B8AD90059E14E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DFC1F6B8AD90059E14E /* LaunchScreen.storyboard */; };
+		99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FF98381F7C8B8700E3891B /* ProjectController.swift */; };
+		99FF983B1F7C8C2800E3891B /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FF983A1F7C8C2800E3891B /* Team.swift */; };
+		A19C36071A4E00226F5FF8B2 /* Pods_FEDD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B40721366CCFE2B4B17A5FB /* Pods_FEDD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A67D5178EA0960EEAC00A79 /* Pods-FEDD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FEDD.release.xcconfig"; path = "Pods/Target Support Files/Pods-FEDD/Pods-FEDD.release.xcconfig"; sourceTree = "<group>"; };
+		0B73DA6D1FB658DB0082E347 /* InputScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputScoreViewController.swift; sourceTree = "<group>"; };
+		0B73DA6F1FB659F70082E347 /* PickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		0B73DA701FB659F70082E347 /* PickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerTableViewCell.xib; sourceTree = "<group>"; };
+		0B73DA771FB6AF370082E347 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		0B73DA7B1FB739940082E347 /* FEDD-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FEDD-Bridging-Header.h"; sourceTree = "<group>"; };
+		0B73DA7E1FB7ABF00082E347 /* SignInHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInHelper.swift; sourceTree = "<group>"; };
+		7829E54E1FB6597F00BDF393 /* TeamViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewCell.swift; sourceTree = "<group>"; };
+		7829E5501FB65C9900BDF393 /* TeamViewSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewSectionCell.swift; sourceTree = "<group>"; };
+		786D40E81F8F03E80016A5CA /* TeamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamController.swift; sourceTree = "<group>"; };
+		789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenController.swift; sourceTree = "<group>"; };
+		789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
+		7B40721366CCFE2B4B17A5FB /* Pods_FEDD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FEDD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		99294FC11F8EFD8E00A2CF7E /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		99294FC41F8F009900A2CF7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99294FC61F8F02AF00A2CF7E /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		9939522A1FC2205300FF49B0 /* TeamInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInfoCell.swift; sourceTree = "<group>"; };
+		9939522C1FC2206400FF49B0 /* CreateTeamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamController.swift; sourceTree = "<group>"; };
+		99D39D571FB6610A00A8AABB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		99D39D591FB7B7B100A8AABB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99FC9DED1F6B8AD90059E14E /* FEDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FEDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99FC9DF21F6B8AD90059E14E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +64,9 @@
 		99FC9DFA1F6B8AD90059E14E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99FC9DFD1F6B8AD90059E14E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99FC9DFF1F6B8AD90059E14E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99FF98381F7C8B8700E3891B /* ProjectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectController.swift; sourceTree = "<group>"; };
+		99FF983A1F7C8C2800E3891B /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		C797F33B8429BAA54ACDB93D /* Pods-FEDD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FEDD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FEDD/Pods-FEDD.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +74,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A19C36071A4E00226F5FF8B2 /* Pods_FEDD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7829E54D1FB6591A00BDF393 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7829E54E1FB6597F00BDF393 /* TeamViewCell.swift */,
+				7829E5501FB65C9900BDF393 /* TeamViewSectionCell.swift */,
+				9939522A1FC2205300FF49B0 /* TeamInfoCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		789A20F31F7C8B6D00A6A251 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				789A20F41F7C8BAE00A6A251 /* HomeScreenController.swift */,
+				789A20F61F7C8D5D00A6A251 /* ProjectCell.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		78DD57401F8EFFE800561162 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0B73DA6D1FB658DB0082E347 /* InputScoreViewController.swift */,
+				0B73DA771FB6AF370082E347 /* FirstViewController.swift */,
+				786D40E81F8F03E80016A5CA /* TeamController.swift */,
+				0B73DA7E1FB7ABF00082E347 /* SignInHelper.swift */,
+				9939522C1FC2206400FF49B0 /* CreateTeamController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		99FC9DE41F6B8AD90059E14E = {
 			isa = PBXGroup;
 			children = (
 				99FC9DEF1F6B8AD90059E14E /* FEDD */,
 				99FC9DEE1F6B8AD90059E14E /* Products */,
+				E06687F7B6BB279B50051CD7 /* Pods */,
+				FF17FF0EF2CF2718F111A65E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +133,69 @@
 		99FC9DEF1F6B8AD90059E14E /* FEDD */ = {
 			isa = PBXGroup;
 			children = (
+				99D39D591FB7B7B100A8AABB /* GoogleService-Info.plist */,
+				7829E54D1FB6591A00BDF393 /* Cells */,
+				789A20F31F7C8B6D00A6A251 /* HomeScreen */,
+				99FF983F1F7C8C6700E3891B /* Models */,
+				78DD57401F8EFFE800561162 /* Controllers */,
+				99FF983E1F7C8C5700E3891B /* Views */,
+				99FF983C1F7C8C3D00E3891B /* Assets */,
 				99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */,
 				99FC9DF21F6B8AD90059E14E /* ViewController.swift */,
-				99FC9DF41F6B8AD90059E14E /* Main.storyboard */,
+				99FF98381F7C8B8700E3891B /* ProjectController.swift */,
+				0B73DA7B1FB739940082E347 /* FEDD-Bridging-Header.h */,
+			);
+			path = FEDD;
+			sourceTree = "<group>";
+		};
+		99FF983C1F7C8C3D00E3891B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				99294FC41F8F009900A2CF7E /* GoogleService-Info.plist */,
 				99FC9DFA1F6B8AD90059E14E /* Assets.xcassets */,
-				99FC9DFC1F6B8AD90059E14E /* LaunchScreen.storyboard */,
 				99FC9DFF1F6B8AD90059E14E /* Info.plist */,
 				99FC9DF71F6B8AD90059E14E /* FEDD.xcdatamodeld */,
 			);
-			path = FEDD;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		99FF983E1F7C8C5700E3891B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99FC9DFC1F6B8AD90059E14E /* LaunchScreen.storyboard */,
+				99FC9DF41F6B8AD90059E14E /* Main.storyboard */,
+				0B73DA6F1FB659F70082E347 /* PickerTableViewCell.swift */,
+				0B73DA701FB659F70082E347 /* PickerTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		99FF983F1F7C8C6700E3891B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				99FF983A1F7C8C2800E3891B /* Team.swift */,
+				99294FC11F8EFD8E00A2CF7E /* DBManager.swift */,
+				99294FC61F8F02AF00A2CF7E /* Score.swift */,
+				99D39D571FB6610A00A8AABB /* Project.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E06687F7B6BB279B50051CD7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C797F33B8429BAA54ACDB93D /* Pods-FEDD.debug.xcconfig */,
+				0A67D5178EA0960EEAC00A79 /* Pods-FEDD.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF17FF0EF2CF2718F111A65E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B40721366CCFE2B4B17A5FB /* Pods_FEDD.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99FC9E021F6B8AD90059E14E /* Build configuration list for PBXNativeTarget "FEDD" */;
 			buildPhases = (
+				B59322D1AD8340A81F85A9AD /* [CP] Check Pods Manifest.lock */,
 				99FC9DE91F6B8AD90059E14E /* Sources */,
 				99FC9DEA1F6B8AD90059E14E /* Frameworks */,
 				99FC9DEB1F6B8AD90059E14E /* Resources */,
+				B646EBBA70AFE59439CE8BE4 /* [CP] Embed Pods Frameworks */,
+				93ECA7386088E14ED5D8CFCE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -100,6 +234,7 @@
 					99FC9DEC1F6B8AD90059E14E = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 47FWPX3KEU;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -127,22 +262,118 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B73DA721FB659F70082E347 /* PickerTableViewCell.xib in Resources */,
+				99294FC51F8F009900A2CF7E /* GoogleService-Info.plist in Resources */,
 				99FC9DFE1F6B8AD90059E14E /* LaunchScreen.storyboard in Resources */,
 				99FC9DFB1F6B8AD90059E14E /* Assets.xcassets in Resources */,
+				99D39D5A1FB7B7B100A8AABB /* GoogleService-Info.plist in Resources */,
 				99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		93ECA7386088E14ED5D8CFCE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FEDD/Pods-FEDD-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FEDD/Pods-FEDD-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B59322D1AD8340A81F85A9AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FEDD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B646EBBA70AFE59439CE8BE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FEDD/Pods-FEDD-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FEDD/Pods-FEDD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		99FC9DE91F6B8AD90059E14E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7829E54F1FB6597F00BDF393 /* TeamViewCell.swift in Sources */,
 				99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */,
+				9939522B1FC2205300FF49B0 /* TeamInfoCell.swift in Sources */,
+				99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */,
+				0B73DA711FB659F70082E347 /* PickerTableViewCell.swift in Sources */,
+				786D40E91F8F03E80016A5CA /* TeamController.swift in Sources */,
 				99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */,
+				99D39D581FB6610A00A8AABB /* Project.swift in Sources */,
+				99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */,
+				9939522D1FC2206400FF49B0 /* CreateTeamController.swift in Sources */,
+				0B73DA6E1FB658DB0082E347 /* InputScoreViewController.swift in Sources */,
+				789A20F51F7C8BAE00A6A251 /* HomeScreenController.swift in Sources */,
+				789A20F71F7C8D5D00A6A251 /* ProjectCell.swift in Sources */,
+				0B73DA7F1FB7ABF00082E347 /* SignInHelper.swift in Sources */,
+				0B73DA781FB6AF370082E347 /* FirstViewController.swift in Sources */,
+				99FF983B1F7C8C2800E3891B /* Team.swift in Sources */,
+				99294FC71F8F02AF00A2CF7E /* Score.swift in Sources */,
 				99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */,
+				7829E5511FB65C9900BDF393 /* TeamViewSectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -253,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -263,28 +494,35 @@
 		};
 		99FC9E031F6B8AD90059E14E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C797F33B8429BAA54ACDB93D /* Pods-FEDD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 47FWPX3KEU;
-				INFOPLIST_FILE = FEDD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_FILE = FEDD/Assets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NCSUAdc.FEDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FEDD/FEDD-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		99FC9E041F6B8AD90059E14E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A67D5178EA0960EEAC00A79 /* Pods-FEDD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 47FWPX3KEU;
-				INFOPLIST_FILE = FEDD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				INFOPLIST_FILE = FEDD/Assets/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.NCSUAdc.FEDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FEDD/FEDD-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -308,6 +546,7 @@
 				99FC9E041F6B8AD90059E14E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

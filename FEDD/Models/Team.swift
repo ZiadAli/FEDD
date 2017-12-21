@@ -1,0 +1,22 @@
+//
+//  Team.swift
+//  FEDD
+//
+//  Created by Ziad Ali on 9/27/17.
+//  Copyright © 2017 ZiadCorp. All rights reserved.
+//
+
+import Foundation
+
+class Team:NSObject {
+    
+    var name:String!
+    var project:String!
+    var members:[String]!
+    var sessionTime:String!
+    var id:String!
+    var score:Double = 0.0
+    var hovercraftTime = 0.0
+    var published = true
+    
+}

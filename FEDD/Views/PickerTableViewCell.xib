@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PickerTableViewCell" customModule="FEDD" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ist-3k-Ids">
+                        <rect key="frame" x="262" y="8" width="50" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="ss1-H8-3DW"/>
+                        </constraints>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                        <connections>
+                            <action selector="valueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="TGD-b4-4f0"/>
+                        </connections>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ven-dS-Ge5">
+                        <rect key="frame" x="8" y="8" width="246" height="27.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ven-dS-Ge5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="92l-No-RzH"/>
+                    <constraint firstItem="Ist-3k-Ids" firstAttribute="leading" secondItem="ven-dS-Ge5" secondAttribute="trailing" constant="8" id="Daf-fz-NR3"/>
+                    <constraint firstAttribute="bottom" secondItem="ven-dS-Ge5" secondAttribute="bottom" constant="8" id="fbD-pE-Adb"/>
+                    <constraint firstAttribute="trailing" secondItem="Ist-3k-Ids" secondAttribute="trailing" constant="8" id="hrd-3l-cLF"/>
+                    <constraint firstAttribute="bottom" secondItem="Ist-3k-Ids" secondAttribute="bottom" constant="8" id="jKE-Pe-uSw"/>
+                    <constraint firstItem="ven-dS-Ge5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="tRW-wL-2LS"/>
+                    <constraint firstItem="Ist-3k-Ids" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="yJN-jv-buU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="prompt" destination="ven-dS-Ge5" id="k87-WU-QJZ"/>
+                <outlet property="valueField" destination="Ist-3k-Ids" id="rDh-Hk-wkZ"/>
+            </connections>
+            <point key="canvasLocation" x="-89" y="117"/>
+        </tableViewCell>
+    </objects>
+</document>
