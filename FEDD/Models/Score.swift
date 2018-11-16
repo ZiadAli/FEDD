@@ -127,11 +127,12 @@ class Formulas {
 class Scores {
     
     static let rubrics = [
-        "3D Printing":Scores.get3DPrinting(),
         "Animatronics":Scores.getAnimatronics(),
         "Arcade Game":Scores.getArcadeGame(),
+        "Assistive Device":Scores.getAssistiveDevice(),
         "Automatic Chicken Coop Door":Scores.getChickenCoop(),
         "Bubble Blowing Machine":Scores.getBubbleMachine(),
+        "Cisco 3D Printing":Scores.get3DPrinting(),
         "Collapsible Bridge":Scores.getCollapsibleBridge(),
         "Concrete Canoe":Scores.getConcreteCanoe(),
         "Educational Computer Game":Scores.getEducationalGame(),
@@ -141,15 +142,11 @@ class Scores {
         "Mechanical Music Machine":Scores.getMusicMaker(),
         "Nuclear Power Probe":Scores.getNuclearProbe(),
         "Precision Launcher":Scores.getPrecisionLauncher(),
+        "Solar Still":Scores.getSolarStill(),
         "Toy Design":Scores.getToyDesign()
     ]
     
     static let requirements = [
-        "3D Printing":[
-            "Easily portable",
-            "Has two distinct functions",
-            "Comprised 25% of 3D printing material Research component provided"
-        ],
         "Animatronics":[
             "Within required dimensions",
             "Research component provided"
@@ -158,6 +155,11 @@ class Scores {
             "Meets basic competition requirements",
             "Within required dimensions",
             "Research component provided"
+        ],
+        "Assistive Device":[
+            "Design includes sketches and a working prototype",
+            "Construction performed by the team",
+            "Project report included",
         ],
         "Automatic Chicken Coop Door":[
             "Meets basic competition requirements",
@@ -171,6 +173,11 @@ class Scores {
             "Continuously and automatically operates for 1 minute",
             "Bubbles detach from the machine (no drooling)",
             "Poster includes all research components"
+        ],
+        "Cisco 3D Printing":[
+            "Easily portable",
+            "Has two distinct functions",
+            "Comprised 25% of 3D printing material Research component provided"
         ],
         "Collapsible Bridge":[
             "Disassembled Components fit within a 12”x12x12” cube",
@@ -231,6 +238,13 @@ class Scores {
             "Satisfies all criteria",
             "Launcher fits inside imaginary 4-foot cube"
         ],
+        "Solar Still":[
+            "Less than or equal to 25 lbs",
+            "Less than or equal to 18 in. in all directions",
+            "Within $40 budget",
+            "Submitted research component",
+            "Reusable"
+        ],
         "Toy Design":[
             "Satisfies all criteria",
             "Research component provided"
@@ -262,6 +276,18 @@ class Scores {
         scores.append(Score(name: "Entertainment value (fun, decoration, difficulty, challenge)", max: 25))
         scores.append(Score(name: "Creativity and artistic value", max: 25))
         scores.append(Score(name: "Craftsmanship and materials used", max: 25))
+        return (scores, true)
+    }
+    
+    static func getAssistiveDevice() -> (scores:[Score], bonusPresent:Bool) {
+        var scores = [Score]()
+        scores.append(Score(name: "Research Quality", max: 20))
+        scores.append(Score(name: "Operation of Prototype", max: 20))
+        scores.append(Score(name: "Potential to Address Ability Issue", max: 20))
+        scores.append(Score(name: "Potential Reliability/Robustness", max: 10))
+        scores.append(Score(name: "Potential Cost", max: 10))
+        scores.append(Score(name: "Craftsmanship", max: 10))
+        scores.append(Score(name: "Appearance of Prototype", max: 10))
         return (scores, true)
     }
     
@@ -388,6 +414,17 @@ class Scores {
         scores.append(Score(name: "Calculated unknown power level", max: 0))
         scores.append(Score(name: "Craftsmanship", max: 5))
         return (scores, false)
+    }
+    
+    static func getSolarStill() -> (scores:[Score], bonusPresent:Bool) {
+        var scores = [Score]()
+        scores.append(Score(name: "Weight Bonus", max: 50))
+        scores.append(Score(name: "Size Bonus", max:200))
+        scores.append(Score(name: "Water Production", max: 30))
+        scores.append(Score(name: "Ease of Transport", max: 10))
+        scores.append(Score(name: "Creativity in Concept", max: 10))
+        scores.append(Score(name: "Presentation Component", max: 20))
+        return (scores, true)
     }
     
     static func getToyDesign() -> (scores:[Score], bonusPresent:Bool) {

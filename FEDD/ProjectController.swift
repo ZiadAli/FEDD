@@ -148,6 +148,8 @@ extension ProjectController: UITableViewDataSource{
         }
         let team = teamList[indexPath.row]
         cell.leftLabel.text = team.name!
+        cell.rightLabel.numberOfLines = 0
+        cell.rightLabel.adjustsFontSizeToFitWidth = true
         let score = Double(round(1000*team.score)/1000)
         cell.rightLabel.text = "\(score)"
         if score < -50 {

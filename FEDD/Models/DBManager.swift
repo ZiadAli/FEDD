@@ -13,11 +13,12 @@ import FirebaseFirestore
 class DBManager {
     
     static let projectNames = [
-        "3D Printing",
         "Animatronics",
         "Arcade Game",
+        "Assistive Device",
         "Automatic Chicken Coop Door",
         "Bubble Blowing Machine",
+        "Cisco 3D Printing",
         "Collapsible Bridge",
         "Concrete Canoe",
         "Educational Computer Game",
@@ -27,6 +28,7 @@ class DBManager {
         "Mechanical Music Machine",
         "Nuclear Power Probe",
         "Precision Launcher",
+        "Solar Still",
         "Toy Design"
     ]
     
@@ -117,6 +119,8 @@ class DBManager {
     
     static func updateLeaderboard(project:String) {
         DBManager.removeListeners()
+        projects[project]?.morningTeams.removeAll()
+        projects[project]?.afternoonTeams.removeAll()
         let ref = Firestore.firestore().collection("Projects").document(project)
         let morningListener = ref.collection("Morning").addSnapshotListener { (collectionSnapshot, error) in
             if let error = error {
@@ -244,6 +248,7 @@ class DBManager {
                     addedScore += 5.0
                 }
                 scoringTeam.score += addedScore
+                print("\(scoringTeam.name) + \(addedScore)")
                 lastTime = scoringTeam.hovercraftTime
                 addedScore -= 5.0
             }
