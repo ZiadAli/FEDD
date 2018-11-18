@@ -263,10 +263,11 @@ class Scores {
     
     static func getAnimatronics() -> (scores:[Score], bonusPresent:Bool) {
         var scores = [Score]()
-        scores.append(Score(name: "Function", max: 25))
-        scores.append(Score(name: "Clear intent", max: 25))
-        scores.append(Score(name: "Creativity and artistic value", max: 25))
-        scores.append(Score(name: "Craftsmanship", max: 25))
+        scores.append(Score(name: "Research quality", max: 20))
+        scores.append(Score(name: "Function", max: 20))
+        scores.append(Score(name: "Clear intent", max: 20))
+        scores.append(Score(name: "Creativity and artistic value", max: 20))
+        scores.append(Score(name: "Craftsmanship", max: 20))
         return (scores, true)
     }
     
@@ -308,7 +309,7 @@ class Scores {
         scores.append(Score(name: "Creativity in concept (patent research, music, lights)", max: 10))
         scores.append(Score(name: "Power source is other than commercial electrochemical batteries", max: 15))
         scores.append(Score(name: "Craftsmanship", max: 20))
-        return (scores, false)
+        return (scores, true)
     }
 
     static func getCollapsibleBridge() -> (scores:[Score], bonusPresent:Bool) {
@@ -316,7 +317,7 @@ class Scores {
         scores.append(Score(name: "Total amount of weight born in excess of 60 lb (1pt/5lbs)", max: 0))
         scores.append(Score(name: "Total bridge weight (1pt/5lbs under max)", max: 0))
         scores.append(Score(name: "Excellence in design", max: 0))
-        return (scores, false)
+        return (scores, true)
     }
     
     static func getConcreteCanoe() -> (scores:[Score], bonusPresent:Bool) {
@@ -328,7 +329,7 @@ class Scores {
     static func getEducationalGame() -> (scores:[Score], bonusPresent:Bool) {
         var scores = [Score]()
         scores.append(Score(name: "Quality of Project Poster (completeness, detail, organization)", max: 20))
-        scores.append(Score(name: "Length of game (1 pt earned for each minute, up to a max of 10 pts)", max: 10))
+        scores.append(Score(name: "Length of game (2 pts earned for each minute, up to a max of 10 pts)", max: 10))
         scores.append(Score(name: "Interactivity of game (average 1 interaction per 10 seconds, minimum)", max: 10))
         scores.append(Score(name: "STEM content taught (relevant, interesting, original, and effective)", max: 20))
         scores.append(Score(name: "Fun for all (Is it fun? Will many user-groups enjoy playing?)", max: 20))
@@ -351,7 +352,7 @@ class Scores {
         scores.append(Score(name: "Bucket contains a laminated fabric which was constructed by the group", max: 1))
         scores.append(Score(name: "The group can prove that the material touching the water will not contaminate the water", max: 1))
         scores.append(Score(name: "Can be worn as a backpack when filled with at least one gallon of water", max: 1))
-        return (scores, false)
+        return (scores, true)
     }
     
     static func getFountain() -> (scores:[Score], bonusPresent:Bool) {
@@ -367,7 +368,7 @@ class Scores {
         scores.append(Score(name: "Creativity in movement", max: 2))
         scores.append(Score(name: "Creativity in other", max: 2))
         scores.append(Score(name: "Deductions for splashing (negative points)", max: 5))
-        return (scores, false)
+        return (scores, true)
     }
  
     static func getHovercraft() -> (scores:[Score], bonusPresent:Bool) {
@@ -377,7 +378,7 @@ class Scores {
         scores.append(Score(name: "Number of times craft violated course boundary (penalty)", max: 0))
         scores.append(Score(name: "Hovercraft remotely navigated", pickerValues: [0,5]))
         scores.append(Score(name: "On-board power source", pickerValues: [0,5]))
-        return (scores, false)
+        return (scores, true)
     }
     
     static func getMusicMaker() -> (scores:[Score], bonusPresent:Bool) {
@@ -409,17 +410,17 @@ class Scores {
         scores.append(Score(name: "Piping is PVC", max: 1))
         scores.append(Score(name: "Waterproof device", max: 1))
         scores.append(Score(name: "Graph or equation has been presented", max: 1))
-        scores.append(Score(name: "Accuracy within +/- 2/5% of reactor power", max: 1))
+        scores.append(Score(name: "Accuracy within +/- 2.5% of reactor power", max: 1))
         scores.append(Score(name: "Research component provided", max: 1))
         scores.append(Score(name: "Calculated unknown power level", max: 0))
         scores.append(Score(name: "Craftsmanship", max: 5))
-        return (scores, false)
+        return (scores, true)
     }
     
     static func getSolarStill() -> (scores:[Score], bonusPresent:Bool) {
         var scores = [Score]()
-        scores.append(Score(name: "Weight Bonus", max: 50))
-        scores.append(Score(name: "Size Bonus", max:200))
+        scores.append(Score(name: "Weight (+2pts for each lb under 25 lbs)", max: 0))
+        scores.append(Score(name: "Size (+3pts for each inch in any direction under 18 in.)", max:0))
         scores.append(Score(name: "Water Production", max: 30))
         scores.append(Score(name: "Ease of Transport", max: 10))
         scores.append(Score(name: "Creativity in Concept", max: 10))
@@ -430,11 +431,11 @@ class Scores {
     static func getToyDesign() -> (scores:[Score], bonusPresent:Bool) {
         var scores = [Score]()
         scores.append(Score(name: "Research component", max: 10))
-        scores.append(Score(name: "Entertainment Value", max: 10))
+        scores.append(Score(name: "Entertainment value", max: 10))
         scores.append(Score(name: "Concept originality/creativity", max: 20))
         scores.append(Score(name: "Craftsmanship/Aesthetics/Safety", max: 20))
-        scores.append(Score(name: "Test process/assessments/meets size and cost restrictions", max: 20))
-        scores.append(Score(name: "Meets learning objective", max: 20))
+        scores.append(Score(name: "Children's testing feedback incorporated", max: 20))
+        scores.append(Score(name: "Meets learning objective", max: 15))
         return (scores, true)
     }
 }
