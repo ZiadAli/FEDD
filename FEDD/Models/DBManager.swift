@@ -64,6 +64,20 @@ class DBManager {
         ref.setData(data)
     }
     
+    static func addAward(project:String, session:String, teamId:String, award:String) {
+        let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId)
+        ref.getDocument { (documentSnapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let document = documentSnapshot else {return}
+            var data = document.data()
+            data["Award"] = award
+            ref.setData(data)
+        }
+    }
+    
     static func publishScore(project:String, session:String, teamId:String, score:Double) {
         let ref = Firestore.firestore().collection("Projects").document(project).collection(session).document(teamId)
         ref.getDocument { (documentSnapshot, error) in
@@ -137,12 +151,14 @@ class DBManager {
                 let totalScore = data["Total"] as? Double ?? 0.0
                 let hovercraftTime = data["Hovercraft"] as? Double ?? 0.0
                 let published = data["Published"] as? Bool ?? true
+                let award = data["Award"] as? String ?? "None"
                 
                 guard let morningTeams = projects[project]?.morningTeams else {return}
                 if let team = morningTeams[teamId] {
                     team.score = totalScore
                     team.name = name
                     team.published = published
+                    team.award = award
                     if project == "Hovercraft" {
                         team.hovercraftTime = hovercraftTime
                     }
@@ -155,6 +171,7 @@ class DBManager {
                     team.sessionTime = "Morning"
                     team.project = project
                     team.score = totalScore
+                    team.award = award
                     if project == "Hovercraft" {
                         team.hovercraftTime = hovercraftTime
                     }
@@ -185,11 +202,13 @@ class DBManager {
                 let totalScore = data["Total"] as? Double ?? 0.0
                 let hovercraftTime = data["Hovercraft"] as? Double ?? 0.0
                 let published = data["Published"] as? Bool ?? true
+                let award = data["Award"] as? String ?? "None"
                 
                 guard let afternoonTeams = projects[project]?.afternoonTeams else {return}
                 if let team = afternoonTeams[teamId] {
                     team.score = totalScore
                     team.name = name
+                    team.award = award
                     if project == "Hovercraft" {
                         team.hovercraftTime = hovercraftTime
                     }
@@ -203,6 +222,7 @@ class DBManager {
                     team.sessionTime = "Afternoon"
                     team.project = project
                     team.score = totalScore
+                    team.award = award
                     if project == "Hovercraft" {
                         team.hovercraftTime = hovercraftTime
                     }

@@ -59,6 +59,39 @@ class TeamController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func awardClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "Award", message: "Select the award received by the team", preferredStyle: .actionSheet)
+        let firstAction = UIAlertAction(title: "1st Place", style: .default) { (action) in
+            self.setTeamAward(award: "1st Place")
+        }
+        let secondAction = UIAlertAction(title: "2nd Place", style: .default) { (action) in
+            self.setTeamAward(award: "2nd Place")
+        }
+        let thirdAction = UIAlertAction(title: "3rd Place", style: .default) { (action) in
+            self.setTeamAward(award: "3rd Place")
+        }
+        let honorableAction = UIAlertAction(title: "Honorable Mention", style: .default) { (action) in
+            self.setTeamAward(award: "Honorable Mention")
+        }
+        let noneAction = UIAlertAction(title: "None", style: .default) { (action) in
+            self.setTeamAward(award: "None")
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let actions = [firstAction, secondAction, thirdAction, honorableAction, noneAction, cancelAction]
+        for action in actions {
+            alert.addAction(action)
+        }
+        present(alert, animated: false, completion: nil)
+    }
+    
+    func setTeamAward(award:String) {
+        print("Award: \(award)")
+        DBManager.addAward(project: project, session: session, teamId: teamId, award: award)
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func disqualifyClicked(_ sender: UIButton) {
         DBManager.publishScore(project: project, session: session, teamId: teamId, score: -1000.0)
         navigationController?.popViewController(animated: true)

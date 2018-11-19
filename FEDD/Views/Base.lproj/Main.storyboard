@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wwl-0A-NlM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wwl-0A-NlM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -296,7 +296,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fsQ-tv-1kk">
-                                <rect key="frame" x="0.0" y="72" width="375" height="495"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="445"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamViewCell" id="jmU-tB-llS" customClass="TeamViewCell" customModule="FEDD" customModuleProvider="target">
@@ -394,19 +394,37 @@
                                     <action selector="disqualifyClicked:" destination="b68-ck-z99" eventType="touchUpInside" id="3fv-B2-hhx"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sA-Qa-70Z">
+                                <rect key="frame" x="0.0" y="517" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.98823529409999999" green="0.70980392160000005" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pCL-dr-bb2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Award">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="awardClicked:" destination="b68-ck-z99" eventType="touchUpInside" id="MMT-Ab-4g0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="oiq-K8-ZwQ" firstAttribute="top" secondItem="6sA-Qa-70Z" secondAttribute="bottom" id="7iG-Da-eh6"/>
                             <constraint firstItem="5nr-WA-tie" firstAttribute="top" secondItem="g7L-NO-9Lt" secondAttribute="bottom" id="8KK-pf-K0L"/>
                             <constraint firstItem="fsQ-tv-1kk" firstAttribute="leading" secondItem="Fss-CA-HKw" secondAttribute="leading" id="DNF-8x-6JG"/>
                             <constraint firstAttribute="trailing" secondItem="fsQ-tv-1kk" secondAttribute="trailing" id="DhA-5E-RRT"/>
                             <constraint firstItem="oiq-K8-ZwQ" firstAttribute="leading" secondItem="Fss-CA-HKw" secondAttribute="leading" id="PZt-TG-DRw"/>
-                            <constraint firstItem="oiq-K8-ZwQ" firstAttribute="top" secondItem="fsQ-tv-1kk" secondAttribute="bottom" id="T2s-Ot-CVX"/>
+                            <constraint firstItem="6sA-Qa-70Z" firstAttribute="top" secondItem="fsQ-tv-1kk" secondAttribute="bottom" id="QYn-8O-Df9"/>
                             <constraint firstAttribute="trailing" secondItem="g7L-NO-9Lt" secondAttribute="trailing" id="WLp-SQ-A3W"/>
                             <constraint firstAttribute="trailing" secondItem="oiq-K8-ZwQ" secondAttribute="trailing" id="Xyo-1a-GpE"/>
                             <constraint firstItem="g7L-NO-9Lt" firstAttribute="leading" secondItem="Fss-CA-HKw" secondAttribute="leading" id="aoR-jZ-Ifr"/>
                             <constraint firstItem="g7L-NO-9Lt" firstAttribute="top" secondItem="oiq-K8-ZwQ" secondAttribute="bottom" id="dDt-41-PPu"/>
+                            <constraint firstAttribute="trailing" secondItem="6sA-Qa-70Z" secondAttribute="trailing" id="ey7-sE-5oQ"/>
                             <constraint firstItem="fsQ-tv-1kk" firstAttribute="top" secondItem="Vja-tF-4Il" secondAttribute="bottom" constant="8" id="j0J-CF-hMo"/>
+                            <constraint firstItem="6sA-Qa-70Z" firstAttribute="leading" secondItem="Fss-CA-HKw" secondAttribute="leading" id="rlQ-MK-de7"/>
+                            <constraint firstItem="oiq-K8-ZwQ" firstAttribute="top" secondItem="6sA-Qa-70Z" secondAttribute="bottom" id="wjR-8U-BqU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Team Name" id="Sg7-E5-zcP">

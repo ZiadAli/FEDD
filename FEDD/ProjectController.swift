@@ -155,14 +155,23 @@ extension ProjectController: UITableViewDataSource{
         if score < -50 {
             cell.rightLabel.text = "--"
         }
+        switch team.award {
+        case "1st Place":
+            cell.backgroundColor = UIColor(red: 212/255.0, green: 175/255.0, blue: 55/255.0, alpha: 1)
+        case "2nd Place":
+            cell.backgroundColor = UIColor(red: 192/255.0, green: 192/255.0, blue: 192/255.0, alpha: 1)
+        case "3rd Place":
+            cell.backgroundColor = UIColor(red: 205/255.0, green: 127/255.0, blue: 50/255.0, alpha: 1)
+        case "Honorable Mention":
+            cell.backgroundColor = UIColor(red: 135/255.0, green: 206/255.0, blue: 250/255.0, alpha: 1)
+        default:
+            cell.backgroundColor = UIColor.white
+        }
         if let userEmail = UserDefaults.standard.value(forKeyPath: "email") as? String {
             let email = userEmail.lowercased()
             if let _ = DBManager.judges[email] {
                 if team.published == false {
                     cell.backgroundColor = UIColor.lightGray
-                }
-                else {
-                    cell.backgroundColor = UIColor.white
                 }
             }
         }

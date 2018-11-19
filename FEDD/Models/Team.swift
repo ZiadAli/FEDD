@@ -18,5 +18,6 @@ class Team:NSObject {
     var score:Double = 0.0
     var hovercraftTime = 0.0
     var published = true
+    var award = "None"
     
 }
