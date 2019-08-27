@@ -24,6 +24,10 @@
 		9939522D1FC2206400FF49B0 /* CreateTeamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939522C1FC2206400FF49B0 /* CreateTeamController.swift */; };
 		99D39D581FB6610A00A8AABB /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D39D571FB6610A00A8AABB /* Project.swift */; };
 		99D39D5A1FB7B7B100A8AABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99D39D591FB7B7B100A8AABB /* GoogleService-Info.plist */; };
+		99D6996821A3C02B00413E6A /* CSFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D6996721A3C02B00413E6A /* CSFManager.swift */; };
+		99D6996A21A3C38A00413E6A /* FEDDTeams.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D6996921A3C38A00413E6A /* FEDDTeams.csv */; };
+		99D6996C21A3C52700413E6A /* FEDDTeams2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D6996B21A3C52700413E6A /* FEDDTeams2.csv */; };
+		99D6996E21A3CF1400413E6A /* FEDDTest.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D6996D21A3CF1400413E6A /* FEDDTest.csv */; };
 		99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */; };
 		99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF21F6B8AD90059E14E /* ViewController.swift */; };
 		99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DF41F6B8AD90059E14E /* Main.storyboard */; };
@@ -56,6 +60,10 @@
 		9939522C1FC2206400FF49B0 /* CreateTeamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTeamController.swift; sourceTree = "<group>"; };
 		99D39D571FB6610A00A8AABB /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		99D39D591FB7B7B100A8AABB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99D6996721A3C02B00413E6A /* CSFManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSFManager.swift; sourceTree = "<group>"; };
+		99D6996921A3C38A00413E6A /* FEDDTeams.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FEDDTeams.csv; sourceTree = "<group>"; };
+		99D6996B21A3C52700413E6A /* FEDDTeams2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FEDDTeams2.csv; path = ../../../FEDDTeams2.csv; sourceTree = "<group>"; };
+		99D6996D21A3CF1400413E6A /* FEDDTest.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FEDDTest.csv; path = ../../../FEDDTest.csv; sourceTree = "<group>"; };
 		99FC9DED1F6B8AD90059E14E /* FEDD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FEDD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99FC9DF21F6B8AD90059E14E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -173,10 +181,14 @@
 		99FF983F1F7C8C6700E3891B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				99D6996D21A3CF1400413E6A /* FEDDTest.csv */,
+				99D6996B21A3C52700413E6A /* FEDDTeams2.csv */,
+				99D6996921A3C38A00413E6A /* FEDDTeams.csv */,
 				99FF983A1F7C8C2800E3891B /* Team.swift */,
 				99294FC11F8EFD8E00A2CF7E /* DBManager.swift */,
 				99294FC61F8F02AF00A2CF7E /* Score.swift */,
 				99D39D571FB6610A00A8AABB /* Project.swift */,
+				99D6996721A3C02B00413E6A /* CSFManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,8 +278,11 @@
 				99294FC51F8F009900A2CF7E /* GoogleService-Info.plist in Resources */,
 				99FC9DFE1F6B8AD90059E14E /* LaunchScreen.storyboard in Resources */,
 				99FC9DFB1F6B8AD90059E14E /* Assets.xcassets in Resources */,
+				99D6996A21A3C38A00413E6A /* FEDDTeams.csv in Resources */,
 				99D39D5A1FB7B7B100A8AABB /* GoogleService-Info.plist in Resources */,
+				99D6996E21A3CF1400413E6A /* FEDDTest.csv in Resources */,
 				99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */,
+				99D6996C21A3C52700413E6A /* FEDDTeams2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +376,7 @@
 				99FF98391F7C8B8700E3891B /* ProjectController.swift in Sources */,
 				0B73DA711FB659F70082E347 /* PickerTableViewCell.swift in Sources */,
 				786D40E91F8F03E80016A5CA /* TeamController.swift in Sources */,
+				99D6996821A3C02B00413E6A /* CSFManager.swift in Sources */,
 				99FC9DF91F6B8AD90059E14E /* FEDD.xcdatamodeld in Sources */,
 				99D39D581FB6610A00A8AABB /* Project.swift in Sources */,
 				99294FC21F8EFD8E00A2CF7E /* DBManager.swift in Sources */,
