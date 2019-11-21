@@ -29,7 +29,7 @@ class TeamInfoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func textFieldDidChange(_ textField: UITextField) {
+    @objc func textFieldDidChange(_ textField: UITextField) {
         let text = textField.text ?? ""
         guard let placeholder = infoField.placeholder else {return}
         sendInfoBackDelegate.getTeamInfo(prompt: placeholder, info: text)

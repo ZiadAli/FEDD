@@ -73,7 +73,7 @@ class InputScoreViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillDisappear(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func keyboardWillAppear(_ notification: NSNotification) {
+    @objc func keyboardWillAppear(_ notification: NSNotification) {
         if let userInfo = notification.userInfo,
             let keyboardFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let inset = keyboardFrame.height // if scrollView is not aligned to bottom of screen, subtract offset
@@ -81,7 +81,7 @@ class InputScoreViewController: UIViewController {
         }
     }
     
-    func keyboardWillDisappear(_ notification: NSNotification) {
+    @objc func keyboardWillDisappear(_ notification: NSNotification) {
         bottomConstraint.constant = 0
     }
 
@@ -102,7 +102,7 @@ class InputScoreViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         self.view.endEditing(true)
     }
 }

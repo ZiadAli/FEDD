@@ -68,7 +68,7 @@ class PickerTableViewCell: UITableViewCell {
         valueField.text = ""
     }
     
-    func donePicker() {
+    @objc func donePicker() {
         valueField.resignFirstResponder()
     }
     
@@ -126,7 +126,7 @@ extension PickerTableViewCell : UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension PickerTableViewCell {
     
-    func textFieldDidChange(_ textField: UITextField) {
+    @objc func textFieldDidChange(_ textField: UITextField) {
         let text = textField.text ?? ""
         if text.isEmpty {
             sendInputBackDelegate?.getInputScore(prompt: promptText, score: 0.0)

@@ -61,11 +61,11 @@ class FirstViewController: UIViewController, GIDSignInUIDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-    func signInSuccess() {
+    @objc func signInSuccess() {
         SignInHelper.showLeaderboard()
     }
     
-    func signInFailure() {
+    @objc func signInFailure() {
         let alert = UIAlertController(title: "Error occured", message: "Sorry, couldn't sign in, please try again later", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
         present(alert, animated: true, completion: nil)

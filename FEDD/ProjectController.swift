@@ -52,7 +52,7 @@ class ProjectController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateTeamList() {
+    @objc func updateTeamList() {
         morningTeams = (DBManager.projects[project]?.morningTeams)!
         afternoonTeams = (DBManager.projects[project]?.afternoonTeams)!
         

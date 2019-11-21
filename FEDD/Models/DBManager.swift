@@ -22,12 +22,13 @@ class DBManager {
         "Collapsible Bridge",
         "Concrete Canoe",
         "Educational Computer Game",
+        "Entrepreneurship",
         "Fabric Bucket",
         "Fountain",
-        "Hovercraft",
         "Mechanical Music Machine",
         "Nuclear Power Probe",
         "Precision Launcher",
+        "River",
         "Solar Still",
         "Toy Design"
     ]

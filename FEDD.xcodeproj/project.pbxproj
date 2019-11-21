@@ -25,8 +25,6 @@
 		99D39D5A1FB7B7B100A8AABB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99D39D591FB7B7B100A8AABB /* GoogleService-Info.plist */; };
 		99D6996821A3C02B00413E6A /* CSFManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D6996721A3C02B00413E6A /* CSFManager.swift */; };
 		99D6996A21A3C38A00413E6A /* FEDDTeams.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D6996921A3C38A00413E6A /* FEDDTeams.csv */; };
-		99D6996C21A3C52700413E6A /* FEDDTeams2.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D6996B21A3C52700413E6A /* FEDDTeams2.csv */; };
-		99D6996E21A3CF1400413E6A /* FEDDTest.csv in Resources */ = {isa = PBXBuildFile; fileRef = 99D6996D21A3CF1400413E6A /* FEDDTest.csv */; };
 		99FC9DF11F6B8AD90059E14E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF01F6B8AD90059E14E /* AppDelegate.swift */; };
 		99FC9DF31F6B8AD90059E14E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FC9DF21F6B8AD90059E14E /* ViewController.swift */; };
 		99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99FC9DF41F6B8AD90059E14E /* Main.storyboard */; };
@@ -255,6 +253,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -278,9 +277,7 @@
 				99FC9DFB1F6B8AD90059E14E /* Assets.xcassets in Resources */,
 				99D6996A21A3C38A00413E6A /* FEDDTeams.csv in Resources */,
 				99D39D5A1FB7B7B100A8AABB /* GoogleService-Info.plist in Resources */,
-				99D6996E21A3CF1400413E6A /* FEDDTest.csv in Resources */,
 				99FC9DF61F6B8AD90059E14E /* Main.storyboard in Resources */,
-				99D6996C21A3C52700413E6A /* FEDDTeams2.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +517,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FEDD/FEDD-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -537,7 +534,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.NCSUAdc.FEDD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "FEDD/FEDD-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -136,12 +136,13 @@ class Scores {
         "Collapsible Bridge":Scores.getCollapsibleBridge(),
         "Concrete Canoe":Scores.getConcreteCanoe(),
         "Educational Computer Game":Scores.getEducationalGame(),
+        "Entrepreneurship":Scores.getEntrepreneurship(),
         "Fabric Bucket":Scores.getFabricBucket(),
         "Fountain":Scores.getFountain(),
-        "Hovercraft":Scores.getHovercraft(),
         "Mechanical Music Machine":Scores.getMusicMaker(),
         "Nuclear Power Probe":Scores.getNuclearProbe(),
         "Precision Launcher":Scores.getPrecisionLauncher(),
+        "River":Scores.getRiver(),
         "Solar Still":Scores.getSolarStill(),
         "Toy Design":Scores.getToyDesign()
     ]
@@ -201,6 +202,10 @@ class Scores {
             "Computer game available for play on FEDD",
             "Project Poster presented at FEDD"
         ],
+        "Entrepreneurship":[
+            "Meets basic competition requirements",
+            "Project Poster presented at FEDD"
+        ],
         "Fabric Bucket":[
             "Portable when full of water; must be able to hang from a hook for testing",
             "Before adding water, the bucket fits completely inside a container with a lid completely closed with a width of 6 in, length of 6 in, and height of 6 in.",
@@ -214,11 +219,6 @@ class Scores {
             "Continuously fountains water",
             "2'x2' footprint",
             "Provided research component (3 deliverables)"
-        ],
-        "Hovercraft":[
-            "Attended FEDD pre-event",
-            "Battery-power or line-power (no gasoline-power)",
-            "Research component provided"
         ],
         "Mechanical Music Machine":[
             "Safe material",
@@ -244,6 +244,13 @@ class Scores {
             "Within $40 budget",
             "Submitted research component",
             "Reusable"
+        ],
+        "River":[
+            "Structure is 3-D printed and fits within the dimensions of the control volume (9.0 cm tall, 20 cm long and 7.6 cm wide).",
+            "Structure has at least one contiguous opening of at least 1.3 cm.",
+            "Structure can be attached to the flume similar to the existing weir.",
+            "Water is able to flow through the structure.",
+            "Poster on the research and design for their project that includes five references"
         ],
         "Toy Design":[
             "Satisfies all criteria",
@@ -336,6 +343,20 @@ class Scores {
         scores.append(Score(name: "Overall Quality (esthetics, completeness, details)", max: 20))
         return (scores, true)
     }
+    static func getEntrepreneurship() -> (scores:[Score], bonusPresent:Bool) {
+           var scores = [Score]()
+           scores.append(Score(name: "The entrepreneurial opportunity is clearly stated and research has been used to clearly explain why the opportunity should be addressed", max: 10))
+           scores.append(Score(name: "There is a product feature list that clearly illustrates what features are important and why they are necessary", max: 15))
+           scores.append(Score(name: "There is an original MVP that was clearly created based on the research and interview data that was gathered", max: 10))
+           scores.append(Score(name: "Customer feedback on the original MVP is clearly stated and is tied to the product changes that the team chose to make", max: 10))
+           scores.append(Score(name: "There is an updated MVP that clearly shows the changes and updates", max: 10))
+           scores.append(Score(name: "Clear data is provided to show the production cost of one unit ", max: 10))
+           scores.append(Score(name: "Clear data is provided showing how much the product will be sold for and why that price point was chosen", max: 10))
+           scores.append(Score(name: "Overall quality of the poster", max: 10))
+           scores.append(Score(name: "Overall quality of the research and prototypes", max: 15))
+           scores.append(Score(name: "Overall quality of the research and prototypes", max: 20))
+           return (scores, true)
+       }
     
     static func getFabricBucket() -> (scores:[Score], bonusPresent:Bool) {
         var scores = [Score]()
@@ -368,16 +389,6 @@ class Scores {
         scores.append(Score(name: "Creativity in movement", max: 2))
         scores.append(Score(name: "Creativity in other", max: 2))
         scores.append(Score(name: "Deductions for splashing (negative points)", max: 5))
-        return (scores, true)
-    }
- 
-    static func getHovercraft() -> (scores:[Score], bonusPresent:Bool) {
-        var scores = [Score]()
-        scores.append(Score(name: "Course completion time in seconds", max: 0))
-        scores.append(Score(name: "Craftsmanship", max: 5))
-        scores.append(Score(name: "Number of times craft violated course boundary (penalty)", max: 0))
-        scores.append(Score(name: "Hovercraft remotely navigated", pickerValues: [0,5]))
-        scores.append(Score(name: "On-board power source", pickerValues: [0,5]))
         return (scores, true)
     }
     
@@ -425,6 +436,16 @@ class Scores {
         scores.append(Score(name: "Ease of Transport", max: 10))
         scores.append(Score(name: "Creativity in Concept", max: 10))
         scores.append(Score(name: "Presentation Component", max: 20))
+        return (scores, true)
+    }
+    static func getRiver() -> (scores:[Score], bonusPresent:Bool) {
+        var scores = [Score]()
+        scores.append(Score(name: "Downstream velocity reduction as compared to weir installation", max: 5))
+        scores.append(Score(name: "Downstream water height as compared to case with a weir", max: 5))
+        scores.append(Score(name: "Creative design that mimics natural habitat", max: 2))
+        scores.append(Score(name: "Ability for the design to be transferred into practice", max: 2))
+        scores.append(Score(name: "Clear demonstration of the engineering design process", max: 2))
+        scores.append(Score(name: "Poster clearly describes the project ", max: 2))
         return (scores, true)
     }
     
